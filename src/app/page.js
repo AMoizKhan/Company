@@ -1,4 +1,5 @@
 import Header from "@/Component/Header";
+import MainPage from "@/app/Home";
 import Image from "next/image";
 
 export default function Home() {
@@ -6,7 +7,7 @@ export default function Home() {
     <div>
       <Header />
       <div>
-        <h1>Welcome to My Portfolio</h1>
+        <MainPage />
       </div>
     </div>
   );
