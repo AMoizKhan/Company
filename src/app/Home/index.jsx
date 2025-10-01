@@ -15,6 +15,7 @@ export default function HomePage() {
     {
       title: "Mobile App Development",
       description: "Custom iOS and Android apps for your business.",
+      link: "/services",
     },
     {
       title: "Ebook Solutions",
@@ -111,11 +112,14 @@ export default function HomePage() {
             onClick={() => (window.location.href = service.link)}
             className="cursor-pointer"
           >
-            <Card
-              title={service.title}
-              description={service.description}
-              className="rounded-4xl shadow-lg hover:shadow-xl transition"
-            />
+       <Card
+          key={index}
+          title={service.title}
+          description={service.description}
+          image={service.image}
+          link={service.link}
+          className="shadow-lg hover:shadow-xl transition"
+        />
           </div>
         ))}
       </div>
