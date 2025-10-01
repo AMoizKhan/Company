@@ -1,4 +1,5 @@
 import Footer from "@/Component/Footer";
+import GodRays from "@/Component/GodRays";
 import Header from "@/Component/Header";
 import MainPage from "@/app/Home";
 import Image from "next/image";
@@ -8,6 +9,7 @@ export default function Home() {
     <div>
       <Header />
       <div>
+        <GodRays />
         <MainPage />
       </div>
       <Footer/>

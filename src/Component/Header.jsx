@@ -15,12 +15,12 @@ export default function Header() {
             {/* Logo Left */}
             <Link href="/">
                 <div className="relative w-22 h-20">
-                    <Image
+                    {/* <Image
                         src={logo}
                         alt="Logo"
                         fill
                         className="object-contain cursor-pointer"
-                    />
+                    /> */}
                 </div>
             </Link>
 

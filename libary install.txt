@@ -1,0 +1,4 @@
+npx shadcn@latest add https://reactbits.dev/r/SplitText-JS-TW
+----------
+npx shadcn@latest add https://reactbits.dev/r/LiquidEther-JS-TW
+-----

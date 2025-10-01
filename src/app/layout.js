@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import GodRays from "@/Component/GodRays";
 
 // Load Google fonts
 const geistSans = Geist({
@@ -21,7 +22,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-black`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-black relative`}>
+        {/* GodRays background for all pages */}
+        <GodRays />
+        
+        {/* Your page content */}
         {children}
       </body>
     </html>
