@@ -9,7 +9,7 @@ export default function Home() {
     <div>
       <Header />
       <div>
-        <GodRays />
+   
         <MainPage />
       </div>
       <Footer/>

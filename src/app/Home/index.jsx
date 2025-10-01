@@ -1,4 +1,4 @@
-
+"use client";
 import Card from "@/Component/card";
 import GodRays from "@/Component/GodRays";
 import GridCards from "@/Component/grid";
@@ -10,6 +10,7 @@ export default function HomePage() {
     {
       title: "Web Development",
       description: "Building modern, responsive, and secure websites.",
+      link: "/services",
     },
     {
       title: "Mobile App Development",
@@ -59,7 +60,7 @@ export default function HomePage() {
       <GodRays />
       <div
         className="flex min-h-screen bg-cover bg-center relative"
-        style={{ backgroundImage: "url('/image/building.png')" }}
+        style={{ backgroundImage: "url('/image/ai-bg.jpg')" }}
       >
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/40"></div>
@@ -67,7 +68,7 @@ export default function HomePage() {
         {/* Left Side Content */}
         <div className="relative flex flex-col justify-center text-white pl-40">
           {/* Main Heading */}
-        <h1>TEkflow</h1>
+          <h1>TEkflow</h1>
 
           {/* Subheading */}
           <h2 className="text-2xl mt-6 drop-shadow-md">
@@ -84,11 +85,11 @@ export default function HomePage() {
 
 
           {/* Button */}
-        <div className="w-40 mx-auto text-center mt-2 justify-start">
-  <button className="w-full py-2 rounded-md border-2 border-blue-600 text-blue-600 text-sm font-medium hover:bg-blue-600 hover:text-white transition">
-    Read More
-  </button>
-</div>
+          <div className="w-40 mx-auto text-center mt-2 justify-start">
+            <button className="w-full py-2 rounded-md border-2 border-blue-600 text-blue-600 text-sm font-medium hover:bg-blue-600 hover:text-white transition">
+              Read More
+            </button>
+          </div>
 
         </div>
       </div>
@@ -99,20 +100,26 @@ export default function HomePage() {
         {/* <h1 className="text-4xl font-bold text-gray-800 mb-8">Our Cards</h1> */}
 
         {/* Grid for multiple cards */}
-        <div className="p-10 bg-gray-100 min-h-screen">
-          <h1 className="text-4xl font-bold text-gray-800 mb-8">Our Services</h1>
+    <div className="p-10 bg-gray-100 min-h-screen text-center">
+      <h1 className="text-4xl font-bold text-gray-800 mb-8">Our Services</h1>
 
-          {/* Grid Layout */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {services.map((service, index) => (
-              <Card
-                key={index}
-                title={service.title}
-                description={service.description}
-              />
-            ))}
+      {/* Grid Layout */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {services.map((service, index) => (
+          <div
+            key={index}
+            onClick={() => (window.location.href = service.link)}
+            className="cursor-pointer"
+          >
+            <Card
+              title={service.title}
+              description={service.description}
+              className="rounded-4xl shadow-lg hover:shadow-xl transition"
+            />
           </div>
-        </div>
+        ))}
+      </div>
+    </div>
       </div>
       <div className="p-6">
         <GridCards data={grid} />
