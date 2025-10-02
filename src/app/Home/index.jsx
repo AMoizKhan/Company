@@ -1,5 +1,6 @@
 "use client";
 import Card from "@/Component/card";
+import FAQ from "@/Component/FAQs";
 import GodRays from "@/Component/GodRays";
 import GridCards from "@/Component/grid";
 import TestimonialSection from "@/Component/review";
@@ -9,42 +10,48 @@ export default function HomePage() {
   const services = [
     {
       title: "Web Development",
-      description: "Building modern, responsive, and secure websites.",
+      description: "We specialize in building modern, responsive, and secure websites that deliver seamless user experiences and help your brand stand out in the digital world.",
       link: "/services",
     },
     {
       title: "Mobile App Development",
-      description: "Custom iOS and Android apps for your business.",
+      description: "We create custom iOS and Android apps tailored to your business needs, ensuring seamless performance and user-friendly design.",
       link: "/services",
     },
     {
-      title: "Ebook Solutions",
-      description: "Designing and publishing engaging digital ebooks.",
-    },
+      title: "Artificial Intelligence",
+      description: "We build intelligent AI solutions that automate processes, enhance decision-making, and drive business growth.",
+    }
+    ,
     {
       title: "Content Writing",
-      description: "High-quality, SEO-friendly content for any niche.",
+      description: "From high-quality, SEO-friendly content to engaging digital eBooks, we craft words that inform, inspire, and strengthen your brand’s digital presence.",
     },
     {
       title: "Digital Marketing",
-      description: "Boost your brand with social media and SEO campaigns.",
-    },
+      description: "We help boost your brand visibility through powerful social media strategies and result-driven SEO campaigns.",
+    }
+    ,
     {
       title: "Cloud Computing",
-      description: "Scalable and secure cloud solutions for enterprises.",
-    },
+      description: "We provide scalable, reliable, and secure cloud solutions that empower businesses to grow and innovate.",
+    }
+    ,
     {
       title: "Game Development",
-      description: "Interactive and creative games for web and mobile.",
-    },
+      description: "We build interactive and engaging games for web and mobile, delivering fun and immersive experiences.",
+    }
+    ,
     {
-      title: "Cyber Security",
-      description: "Protecting businesses from online threats and attacks.",
-    },
+      title: "Video Editing",
+      description: "We craft professional, engaging, and high-quality videos that bring your ideas and brand stories to life.",
+    }
+    ,
     {
       title: "Graphic Design",
-      description: "Creative designs to build your unique brand identity.",
-    },
+      description: "We create stunning and creative designs that build a strong, unique, and lasting brand identity.",
+    }
+    ,
   ];
   const grid = [
     { img: "/img1.jpg", title: "Web Development", desc: "Modern websites with Next.js" },
@@ -101,29 +108,29 @@ export default function HomePage() {
         {/* <h1 className="text-4xl font-bold text-gray-800 mb-8">Our Cards</h1> */}
 
         {/* Grid for multiple cards */}
-    <div className="p-10 bg-gray-100 min-h-screen text-center">
-      <h1 className="text-4xl font-bold text-gray-800 mb-8">Our Services</h1>
+        <div className="p-10 bg-gray-100 min-h-screen text-center">
+          <h1 className="text-4xl font-bold text-gray-800 mb-8">Our Services</h1>
 
-      {/* Grid Layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {services.map((service, index) => (
-          <div
-            key={index}
-            onClick={() => (window.location.href = service.link)}
-            className="cursor-pointer"
-          >
-       <Card
-          key={index}
-          title={service.title}
-          description={service.description}
-          image={service.image}
-          link={service.link}
-          className="shadow-lg hover:shadow-xl transition"
-        />
+          {/* Grid Layout */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                onClick={() => (window.location.href = service.link)}
+                className="cursor-pointer"
+              >
+                <Card
+                  key={index}
+                  title={service.title}
+                  description={service.description}
+                  image={service.image}
+                  link={service.link}
+                  className="shadow-lg hover:shadow-xl transition"
+                />
+              </div>
+            ))}
           </div>
-        ))}
-      </div>
-    </div>
+        </div>
       </div>
       <div className="p-6">
         <GridCards data={grid} />
@@ -151,7 +158,7 @@ export default function HomePage() {
           </div>
         </section>
       </div>
-      <div className="flex flex-col items-center text-center py-12 px-6">
+      {/* <div className="flex flex-col items-center text-center py-12 px-6">
         <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
         <p className="text-gray-600 max-w-2xl mb-10">
           Supercharge your WordPress hosting with detailed website analytics, marketing tools.
@@ -204,6 +211,9 @@ export default function HomePage() {
         <button className="mt-12 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg shadow hover:bg-blue-700">
           Get Support
         </button>
+      </div> */}
+      <div>
+        <FAQ />
       </div>
       <div>
         <TestimonialSection />

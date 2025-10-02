@@ -2,11 +2,9 @@
 
 import ParticleCard from "./ParticleCard";
 
-
 export default function Card({
   title,
   description,
-  image,
   link,
   className = "",
 }) {
@@ -20,20 +18,11 @@ export default function Card({
       glowColor="132, 0, 255"
       enableBorderGlow={true}
     >
-      {/* Image */}
-      {image && (
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-40 object-cover rounded-4xl"
-        />
-      )}
-
       {/* Title */}
-      <h3 className="text-xl font-bold text-gray-800 mt-3">{title}</h3>
+      <h3 className="text-2xl font-bold text-white mt-3">{title}</h3>
 
       {/* Description */}
-      <p className="text-gray-600 mt-2 text-sm">{description}</p>
+      <p className="text-lg text-white mt-2">{description}</p>
 
       {/* Read More */}
       {link && (
