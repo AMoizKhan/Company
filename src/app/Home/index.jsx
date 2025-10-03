@@ -54,9 +54,9 @@ export default function HomePage() {
     ,
   ];
   const grid = [
-    { img: "/img1.jpg", title: "Web Development", desc: "Modern websites with Next.js" },
-    { img: "/img2.jpg", title: "Mobile Apps", desc: "Cross-platform mobile solutions" },
-    { img: "/img3.jpg", title: "Digital Marketing", desc: "Grow your business online" },
+    { img: "../image/website-img.jpg", title: "Web Development", desc: "Modern websites with Next.js", link: "/services/web" },
+    { img: "../image/mobile-app-img.jpg", title: "Mobile Apps", desc: "Cross-platform mobile solutions" },
+    { img: "../image/digital-img.jpg", title: "Digital Marketing", desc: "Grow your business online" },
     // { img: "/img4.jpg", title: "Cloud Computing", desc: "Secure and scalable solutions" },
     // { img: "/img5.jpg", title: "Cyber Security", desc: "Protect your digital assets" },
     // { img: "/img6.jpg", title: "Graphic Design", desc: "Creative branding & visuals" },
@@ -141,7 +141,7 @@ export default function HomePage() {
           {/* Left Image */}
           <div>
             <img
-              src="/img1.jpg"
+              src="../image/serive.jpg"
               alt="About Service"
               className="w-full h-80 object-cover rounded-xl shadow-lg"
             />

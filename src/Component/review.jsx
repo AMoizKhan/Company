@@ -15,16 +15,16 @@ const TestimonialSection = () => {
       role: "CEO, TechVision Corp",
       rating: 5,
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-      buttonLink: "https://techvision.com"
+      // buttonLink: "https://techvision.com"
     },
     {
       id: 2,
       text: "Working with this team has been an absolute pleasure. Their attention to detail and commitment to excellence has helped us achieve our goals faster than we ever imagined possible.",
       author: "Sarah Williams",
       role: "Marketing Director, InnovateX",
-      rating: 5,
+      rating: 4,
       image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-      buttonLink: "https://innovatex.com"
+      // buttonLink: "https://innovatex.com"
     },
     {
       id: 3,
@@ -33,7 +33,7 @@ const TestimonialSection = () => {
       role: "CTO, FutureScale",
       rating: 5,
       image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-      buttonLink: "https://futurescale.com"
+      // buttonLink: "https://futurescale.com"
     }
   ];
 
@@ -63,7 +63,7 @@ const TestimonialSection = () => {
         </div>
       </div>
       <div className="mt-4 flex space-x-4">
-        <button
+        {/* <button
           onClick={() => setSelectedTestimonial(testimonial)}
           className="text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-200"
         >
@@ -76,7 +76,7 @@ const TestimonialSection = () => {
           className="text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-200"
         >
           Visit Website
-        </a>
+        </a> */}
       </div>
     </div>
   );
