@@ -11,6 +11,8 @@ export default function Services() {
   const content = {
     web: [
       {
+        paragraph:
+          "Our web development services focus on creating powerful, visually appealing, and high-performing websites tailored to your business goals. We combine creativity with functionality to ensure your online presence stands out.",
         title: "Responsive Websites",
         desc: "We design and build websites that adapt perfectly to mobile, tablet, and desktop screens, ensuring a seamless user experience."
       },
@@ -25,6 +27,8 @@ export default function Services() {
     ],
     app: [
       {
+        paragraph:
+          "Our mobile app development process is centered around innovation and usability. We deliver feature-rich applications that meet your business needs and delight users with modern interfaces.",
         title: "iOS & Android Apps",
         desc: "We develop apps for both platforms, combining smooth performance with intuitive design."
       },
@@ -39,47 +43,64 @@ export default function Services() {
     ]
   };
 
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
 
-      <main className="max-w-4xl mx-auto p-8">
+      <main className="max-w-5xl mx-auto p-8">
         <h1 className="text-4xl font-bold text-center mb-6">Our Services</h1>
 
         {/* Buttons */}
         <div className="flex justify-center gap-4 mb-10">
           <button
             onClick={() => setActive("web")}
-            className={`px-5 py-2 rounded-md font-semibold transition ${
-              active === "web"
+            className={`px-5 py-2 rounded-md font-semibold transition ${active === "web"
                 ? "bg-blue-600 text-white shadow"
                 : "bg-white text-gray-800 border hover:bg-gray-100"
-            }`}
+              }`}
           >
             Web Development
           </button>
 
           <button
             onClick={() => setActive("app")}
-            className={`px-5 py-2 rounded-md font-semibold transition ${
-              active === "app"
+            className={`px-5 py-2 rounded-md font-semibold transition ${active === "app"
                 ? "bg-blue-600 text-white shadow"
                 : "bg-white text-gray-800 border hover:bg-gray-100"
-            }`}
+              }`}
           >
             App Development
           </button>
         </div>
 
         {/* Grid content */}
-        <div className="grid grid-cols-1 gap-6">
+        <div className="grid grid-cols-1 gap-8">
           {content[active].map((item, idx) => (
             <div
               key={idx}
-              className="bg-white p-6 rounded-xl shadow hover:shadow-lg transition"
+              className={`bg-white p-6 rounded-xl shadow hover:shadow-lg transition flex flex-col md:flex-row ${idx === 1 ? "md:flex-row-reverse" : ""
+                } items-center gap-6`}
             >
-              <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
-              <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+              {/* Text */}
+              <div className="flex-1">
+                {item.paragraph && (
+                  <p className="text-gray-700 mb-3 text-sm leading-relaxed">
+                    {item.paragraph}
+                  </p>
+                )}
+                <h2 className="text-xl font-semibold mb-2">{item.title}</h2>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+
+              {/* Image */}
+              <div className="flex-1">
+                <img
+                  src={`../image/${active}-${idx + 1}.jpg`}
+                  alt={item.title}
+                  className="w-full h-56 object-cover rounded-lg"
+                />
+              </div>
             </div>
           ))}
         </div>
@@ -88,5 +109,6 @@ export default function Services() {
       <TestimonialSection />
       <Footer />
     </div>
+
   );
 }
