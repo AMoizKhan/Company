@@ -10,21 +10,30 @@ export default function Services() {
 
   const content = {
     web: [
-      {
-        paragraph:
-          "Our web development services focus on creating powerful, visually appealing, and high-performing websites tailored to your business goals. We combine creativity with functionality to ensure your online presence stands out.",
-        title: "Responsive Websites",
-        desc: "We design and build websites that adapt perfectly to mobile, tablet, and desktop screens, ensuring a seamless user experience."
-      },
-      {
-        title: "SEO Friendly Structure",
-        desc: "Our code and layout follow best practices so your site ranks higher on search engines and attracts organic traffic."
-      },
-      {
-        title: "Secure & Scalable",
-        desc: "From small business sites to enterprise portals, we implement security and scalability for long-term success."
-      }
-    ],
+  {
+    paragraph:
+      "Our web development services focus on building powerful, visually stunning, and high-performing websites tailored to your specific business goals. We merge creativity, technology, and strategy to deliver digital experiences that captivate users and drive real results. Whether it’s a simple portfolio site or a complex web platform, we ensure your online presence truly stands out.",
+    title: "Responsive Websites",
+    desc: "We design and develop fully responsive websites that automatically adapt to all screen sizes — mobile, tablet, and desktop. Our responsive approach guarantees smooth navigation, fast loading, and an exceptional user experience across all devices."
+  },
+  {
+    title: "SEO-Friendly Structure",
+    desc: "We follow modern SEO best practices in both code and design. From clean URLs and optimized metadata to fast-loading pages and structured content, we ensure your website ranks higher on search engines and attracts steady organic traffic."
+  },
+  {
+    title: "Secure & Scalable",
+    desc: "Our development process prioritizes security and scalability. Whether you're running a startup or an enterprise-level business, we integrate robust security measures and build architectures that can grow effortlessly as your business expands."
+  },
+  {
+    title: "Custom Web Solutions",
+    desc: "Every business is unique — and your website should be too. We create custom web solutions tailored to your goals, integrating the latest technologies and features to deliver an engaging, high-performing digital experience."
+  },
+  {
+    title: "Performance Optimization",
+    desc: "We optimize every element of your website — from code structure to images — ensuring lightning-fast loading speeds and smooth performance that enhances user satisfaction and boosts conversions."
+  }
+]
+
     app: [
       {
         paragraph:
