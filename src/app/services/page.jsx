@@ -32,7 +32,7 @@ export default function Services() {
     title: "Performance Optimization",
     desc: "We optimize every element of your website — from code structure to images — ensuring lightning-fast loading speeds and smooth performance that enhances user satisfaction and boosts conversions."
   }
-]
+],
 
     app: [
       {
