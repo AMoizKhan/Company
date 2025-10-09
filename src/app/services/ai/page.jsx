@@ -1,5 +1,7 @@
 "use client";
 
+import Footer from "@/Component/Footer";
+import Header from "@/Component/Header";
 import {
   FaRobot,
   FaBrain,
@@ -12,6 +14,9 @@ import {
 export default function AI() {
   return (
     <div className="p-10 bg-gray-50 min-h-screen">
+      <div className="sticky top-0 z-50 bg-gray-50">
+        <Header />
+      </div>
       {/* Page Title */}
       <h1 className="text-4xl font-bold text-center mb-6">
         Artificial Intelligence
@@ -121,6 +126,7 @@ export default function AI() {
           Get Started
         </button>
       </div>
+      <Footer />
     </div>
   );
 }

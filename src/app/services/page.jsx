@@ -11,8 +11,8 @@ export default function Services() {
   const content = {
     web: [
   {
-    paragraph:
-      "Our web development services focus on building powerful, visually stunning, and high-performing websites tailored to your specific business goals. We merge creativity, technology, and strategy to deliver digital experiences that captivate users and drive real results. Whether it’s a simple portfolio site or a complex web platform, we ensure your online presence truly stands out.",
+    // paragraph:
+    //   "Our web development services focus on building powerful, visually stunning, and high-performing websites tailored to your specific business goals. We merge creativity, technology, and strategy to deliver digital experiences that captivate users and drive real results. Whether it’s a simple portfolio site or a complex web platform, we ensure your online presence truly stands out.",
     title: "Responsive Websites",
     desc: "We design and develop fully responsive websites that automatically adapt to all screen sizes — mobile, tablet, and desktop. Our responsive approach guarantees smooth navigation, fast loading, and an exceptional user experience across all devices."
   },
@@ -33,23 +33,21 @@ export default function Services() {
     desc: "We optimize every element of your website — from code structure to images — ensuring lightning-fast loading speeds and smooth performance that enhances user satisfaction and boosts conversions."
   }
 ],
+app: [
+  {
+    title: "iOS & Android Apps",
+    desc: "Our mobile app development process is centered around innovation and usability. We deliver feature-rich applications that meet your business needs and delight users with modern interfaces. We develop apps for both platforms, combining smooth performance with intuitive design."
+  },
+  {
+    title: "Cross-Platform Solutions",
+    desc: "Our mobile app development process is centered around innovation and usability. We deliver feature-rich applications that meet your business needs and delight users with modern interfaces. Save cost and time with apps that run flawlessly on multiple devices using one codebase."
+  },
+  {
+    title: "User-Centric Design",
+    desc: "Our mobile app development process is centered around innovation and usability. We deliver feature-rich applications that meet your business needs and delight users with modern interfaces. Our apps focus on simple, engaging experiences that keep users coming back."
+  }
+]
 
-    app: [
-      {
-        paragraph:
-          "Our mobile app development process is centered around innovation and usability. We deliver feature-rich applications that meet your business needs and delight users with modern interfaces.",
-        title: "iOS & Android Apps",
-        desc: "We develop apps for both platforms, combining smooth performance with intuitive design."
-      },
-      {
-        title: "Cross-Platform Solutions",
-        desc: "Save cost and time with apps that run flawlessly on multiple devices using one codebase."
-      },
-      {
-        title: "User-Centric Design",
-        desc: "Our apps focus on simple, engaging experiences that keep users coming back."
-      }
-    ]
   };
 
 
