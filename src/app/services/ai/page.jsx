@@ -2,6 +2,7 @@
 
 import Footer from "@/Component/Footer";
 import Header from "@/Component/Header";
+import Link from "next/link";
 import {
   FaRobot,
   FaBrain,
@@ -66,9 +67,14 @@ export default function AI() {
           </p>
         </div>
         <div className="md:w-1/2">
-          <div className="w-full h-56 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500">
-            Image: NLP Illustration (place /public/ai1.jpg)
+          <div className="md:w-1/2">
+            <img
+              src="../image/ai.jpg"
+              alt="NLP Illustration"
+              className="w-full h-56 object-cover rounded-lg"
+            />
           </div>
+
         </div>
       </div>
 
@@ -82,8 +88,12 @@ export default function AI() {
           </p>
         </div>
         <div className="md:w-1/2">
-          <div className="w-full h-56 bg-gray-200 rounded-lg flex items-center justify-center text-gray-500">
-            Image: AI Vision Illustration (place /public/ai2.jpg)
+          <div className="md:w-1/2">
+            <img
+              src="../image/ai-2.jpg"
+              alt="NLP Illustration"
+              className="w-full h-56 object-cover rounded-lg"
+            />
           </div>
         </div>
       </div>
@@ -122,9 +132,12 @@ export default function AI() {
           Partner with us to integrate AI into your products and services for a
           smarter future.
         </p>
-        <button className="bg-blue-600 text-white px-6 py-3 rounded-md">
-          Get Started
-        </button>
+        <Link href="/contact">
+          <button className="bg-blue-600 text-white px-6 py-3 rounded-md">
+            Get Started
+          </button>
+        </Link>
+
       </div>
       <Footer />
     </div>
