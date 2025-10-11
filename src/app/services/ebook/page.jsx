@@ -13,38 +13,45 @@ import {
 import Image from "next/image";
 
 export default function ContentWritingServices() {
-  const services = [
-    {
-      icon: <FaPenNib className="text-blue-600 text-3xl mx-auto" />,
-      title: "SEO Optimized Articles",
-      desc: "Our team crafts content that is optimized for search engines while engaging your readers naturally.",
-    },
-    {
-      icon: <FaBookOpen className="text-green-600 text-3xl mx-auto" />,
-      title: "E-Books & Guides",
-      desc: "Transform knowledge into professionally written and designed digital guides or eBooks.",
-    },
-    {
-      icon: <FaEdit className="text-pink-600 text-3xl mx-auto" />,
-      title: "Editing & Proofreading",
-      desc: "We ensure error-free, polished content that reflects professionalism and credibility.",
-    },
-    {
-      icon: <FaFileAlt className="text-yellow-500 text-3xl mx-auto" />,
-      title: "Website Content",
-      desc: "Get compelling landing pages, product descriptions, and service writeups that convert visitors.",
-    },
-    {
-      icon: <FaLightbulb className="text-purple-600 text-3xl mx-auto" />,
-      title: "Creative Copywriting",
-      desc: "Catchy taglines and creative ads that capture your brand’s voice and attract customers.",
-    },
-    {
-      icon: <FaShareAlt className="text-red-600 text-3xl mx-auto" />,
-      title: "Social Media Content",
-      desc: "Engaging posts and captions that boost interaction and brand presence across platforms.",
-    },
-  ];
+const services = [
+  {
+    icon: <FaPenNib className="text-blue-600 text-3xl mx-auto" />,
+    title: "SEO Optimized Articles",
+    desc: "Our team crafts content that is optimized for search engines while engaging your readers naturally.",
+    img: "/seo.jpg", // image path (public folder me daalo)
+  },
+  {
+    icon: <FaBookOpen className="text-green-600 text-3xl mx-auto" />,
+    title: "E-Books & Guides",
+    desc: "Transform knowledge into professionally written and designed digital guides or eBooks.",
+    img: "/ebook.jpg",
+  },
+  {
+    icon: <FaEdit className="text-pink-600 text-3xl mx-auto" />,
+    title: "Editing & Proofreading",
+    desc: "We ensure error-free, polished content that reflects professionalism and credibility.",
+    img: "/editing.jpg",
+  },
+  {
+    icon: <FaFileAlt className="text-yellow-500 text-3xl mx-auto" />,
+    title: "Website Content",
+    desc: "Get compelling landing pages, product descriptions, and service writeups that convert visitors.",
+    img: "/website.jpg",
+  },
+  {
+    icon: <FaLightbulb className="text-purple-600 text-3xl mx-auto" />,
+    title: "Creative Copywriting",
+    desc: "Catchy taglines and creative ads that capture your brand’s voice and attract customers.",
+    img: "/copywriting.jpg",
+  },
+  {
+    icon: <FaShareAlt className="text-red-600 text-3xl mx-auto" />,
+    title: "Social Media Content",
+    desc: "Engaging posts and captions that boost interaction and brand presence across platforms.",
+    img: "/social.jpg",
+  },
+];
+
 
   return (
     <div className="bg-gray-50 min-h-screen">
