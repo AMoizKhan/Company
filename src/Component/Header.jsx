@@ -3,11 +3,23 @@
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../public/image/logowithoutbg.png";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white shadow z-50">
@@ -15,44 +27,50 @@ export default function Header() {
         <div className="flex items-center justify-between mx-auto max-w-screen-xl">
           {/* Left: Logo */}
           <Link href="/" className="flex items-center">
-            <span className="text-xl font-semibold text-gray-800">Pure Scent</span>
+            <span className="text-xl font-semibold text-gray-800">Company</span>
           </Link>
 
           {/* Center: Nav Links */}
-          <div className="hidden lg:flex space-x-10 font-medium">
+          <div className="hidden lg:flex justify-center flex-1 space-x-10 font-medium">
             <Link href="/" className="text-gray-700 hover:text-blue-600">
               Home
             </Link>
 
-            <div className="relative">
+            <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="text-gray-700 hover:text-blue-600 focus:outline-none"
+                className="text-gray-700 hover:text-blue-600 focus:outline-none flex items-center gap-1"
               >
                 Services ▾
               </button>
-              {dropdownOpen && (
-                <div className="absolute bg-white border rounded-md shadow-md mt-2 w-40">
+              <div
+                className={`absolute bg-white border rounded-md shadow-md mt-2 w-44 transition-all duration-300 ease-in-out origin-top ${
+                  dropdownOpen
+                    ? "scale-y-100 opacity-100"
+                    : "scale-y-0 opacity-0 pointer-events-none"
+                }`}
+              >
+                {[
+                  ["Web Development", "/services/web"],
+                  ["App Development", "/services/app"],
+                  ["Digital Marketing", "/services/digital-marketing"],
+                  ["Artificial Intelligence", "/services/ai"],
+                  ["Content Writing", "/services/ebook"],
+                  ["Game Development", "/services/gamedevelopment"],
+                  ["Video Editing", "/services/video-editing"],
+                  ["Graphic Designing", "/services/graphic-design"],
+                  ["Cloud Service", "/services/CloudComputing"],
+                ].map(([label, link]) => (
                   <Link
-                    href="/services/web"
+                    key={label}
+                    href={link}
                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    onClick={() => setDropdownOpen(false)}
                   >
-                    Web Development
+                    {label}
                   </Link>
-                  <Link
-                    href="/services/app"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                  >
-                    App Development
-                  </Link>
-                  <Link
-                    href="/services/digital"
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                  >
-                    Digital Marketing
-                  </Link>
-                </div>
-              )}
+                ))}
+              </div>
             </div>
 
             <Link href="/about" className="text-gray-700 hover:text-blue-600">
@@ -75,9 +93,19 @@ export default function Header() {
               viewBox="0 0 24 24"
             >
               {menuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
               )}
             </svg>
           </button>
@@ -86,7 +114,11 @@ export default function Header() {
         {/* Mobile Menu */}
         {menuOpen && (
           <div className="lg:hidden mt-3 space-y-2 text-center">
-            <Link href="/" className="block py-2 text-gray-700 hover:bg-gray-100">
+            <Link
+              href="/"
+              className="block py-2 text-gray-700 hover:bg-gray-100"
+              onClick={() => setMenuOpen(false)}
+            >
               Home
             </Link>
 
@@ -98,22 +130,42 @@ export default function Header() {
             </button>
             {dropdownOpen && (
               <div className="space-y-1">
-                <Link href="/services/web" className="block py-1 text-gray-600 hover:text-blue-600">
+                <Link
+                  href="/services/web"
+                  className="block py-1 text-gray-600 hover:text-blue-600"
+                  onClick={() => setMenuOpen(false)}
+                >
                   Web Development
                 </Link>
-                <Link href="/services/app" className="block py-1 text-gray-600 hover:text-blue-600">
+                <Link
+                  href="/services/app"
+                  className="block py-1 text-gray-600 hover:text-blue-600"
+                  onClick={() => setMenuOpen(false)}
+                >
                   App Development
                 </Link>
-                <Link href="/services/digital" className="block py-1 text-gray-600 hover:text-blue-600">
+                <Link
+                  href="/services/digital"
+                  className="block py-1 text-gray-600 hover:text-blue-600"
+                  onClick={() => setMenuOpen(false)}
+                >
                   Digital Marketing
                 </Link>
               </div>
             )}
 
-            <Link href="/about" className="block py-2 text-gray-700 hover:bg-gray-100">
+            <Link
+              href="/about"
+              className="block py-2 text-gray-700 hover:bg-gray-100"
+              onClick={() => setMenuOpen(false)}
+            >
               About
             </Link>
-            <Link href="/contact" className="block py-2 text-gray-700 hover:bg-gray-100">
+            <Link
+              href="/contact"
+              className="block py-2 text-gray-700 hover:bg-gray-100"
+              onClick={() => setMenuOpen(false)}
+            >
               Contact
             </Link>
           </div>

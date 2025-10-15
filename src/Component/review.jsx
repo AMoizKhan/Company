@@ -130,9 +130,16 @@ const TestimonialSection = () => {
     <div className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
+          {/* <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
             What Our Clients Say
-          </h2>
+          </h2> */}
+          <div className="relative inline-block">
+            <h2 className="text-3xl font-bold mb-6 relative inline-block mx-auto mt-10 px-7 py-2">
+              <span className="absolute top-0 left-0 w-6 h-6 border-t-4 border-l-4 border-black"></span>
+              What Our Clients Say
+              <span className="absolute bottom-0 right-0 w-6 h-6 border-b-4 border-r-4 border-black"></span>
+            </h2>
+          </div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Discover why companies trust us to deliver exceptional results and drive their success forward.
           </p>
