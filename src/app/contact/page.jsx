@@ -120,7 +120,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="mt-8 text-xs text-gray-400">Prefer phone? Call us during working hours for the fastest response.</div>
+            {/* <div className="mt-8 text-xs text-gray-400">Prefer phone? Call us during working hours for the fastest response.</div> */}
           </aside>
         </div>
         <TestimonialSection />
