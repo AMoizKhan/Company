@@ -1,10 +1,12 @@
 "use client";
 
+import Header from "@/Component/Header";
 import { FaCloud, FaBolt, FaSync, FaCogs, FaRocket, FaHeadset } from "react-icons/fa";
 
 export default function About() {
   return (
     <div className="p-10 bg-gray-50 min-h-screen">
+      <Header/>
       {/* Title */}
       <h1 className="text-4xl font-bold text-center mb-8">About Us</h1>
 
