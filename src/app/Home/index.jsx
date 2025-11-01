@@ -76,7 +76,7 @@ export default function HomePage() {
         {/* Left Side Content */}
         <div className="relative flex flex-col justify-center text-white pl-40">
           {/* Main Heading */}
-          <h1>TEkflow</h1>
+          <h1 className="flex text-2xl text-black">MZKoders</h1>
 
           {/* Subheading */}
           <h2 className="text-2xl mt-6 drop-shadow-md">
