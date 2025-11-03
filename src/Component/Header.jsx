@@ -10,10 +10,9 @@ export default function Header() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
 
-  // Close dropdown when clicking outside
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+    const handleClickOutside = (e) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target)) {
         setDropdownOpen(false);
       }
     };
@@ -21,46 +20,50 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  const services = [
+    ["Web Development", "/services/web"],
+    ["App Development", "/services/app"],
+    ["Digital Marketing", "/services/digital-marketing"],
+    ["Artificial Intelligence", "/services/ai"],
+    ["Content Writing", "/services/ebook"],
+    ["Game Development", "/services/gamedevelopment"],
+    ["Video Editing", "/services/video-editing"],
+    ["Graphic Designing", "/services/graphic-design"],
+    ["Cloud Service", "/services/CloudComputing"],
+  ];
+
   return (
-    <header className="fixed top-0 left-0 w-full bg-white shadow z-50">
+    <header className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl bg-white rounded-2xl shadow z-50">
       <nav className="px-4 lg:px-6 py-3">
-        <div className="flex items-center justify-between mx-auto max-w-screen-xl">
-          {/* Left: Logo */}
+        <div className="flex items-center justify-between">
+          {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className="text-xl font-semibold text-gray-800">Company</span>
+            {/* <Image src={logo} alt="Logo" width={40} height={40} /> */}
+            <span className="ml-2 text-xl font-semibold text-gray-800">
+              Company
+            </span>
           </Link>
 
-          {/* Center: Nav Links */}
-          <div className="hidden lg:flex justify-center flex-1 space-x-10 font-medium">
+          {/* Desktop Nav */}
+          <div className="hidden lg:flex justify-center flex-1 space-x-8 font-medium">
             <Link href="/" className="text-gray-700 hover:text-blue-600">
               Home
             </Link>
-
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="text-gray-700 hover:text-blue-600 focus:outline-none flex items-center gap-1"
+                className="text-gray-700 hover:text-blue-600 flex items-center gap-1"
               >
                 Services ▾
               </button>
               <div
-                className={`absolute bg-white border rounded-md shadow-md mt-2 w-44 transition-all duration-300 ease-in-out origin-top ${
+                className={`absolute bg-white border rounded-md shadow-md mt-2 w-48 transition-all duration-200 origin-top ${
                   dropdownOpen
                     ? "scale-y-100 opacity-100"
                     : "scale-y-0 opacity-0 pointer-events-none"
                 }`}
               >
-                {[
-                  ["Web Development", "/services/web"],
-                  ["App Development", "/services/app"],
-                  ["Digital Marketing", "/services/digital-marketing"],
-                  ["Artificial Intelligence", "/services/ai"],
-                  ["Content Writing", "/services/ebook"],
-                  ["Game Development", "/services/gamedevelopment"],
-                  ["Video Editing", "/services/video-editing"],
-                  ["Graphic Designing", "/services/graphic-design"],
-                  ["Cloud Service", "/services/CloudComputing"],
-                ].map(([label, link]) => (
+                {services.map(([label, link]) => (
                   <Link
                     key={label}
                     href={link}
@@ -72,7 +75,6 @@ export default function Header() {
                 ))}
               </div>
             </div>
-
             <Link href="/about" className="text-gray-700 hover:text-blue-600">
               About
             </Link>
@@ -81,10 +83,10 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Right: Hamburger */}
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden p-2 text-gray-700 rounded-md hover:bg-gray-100 focus:outline-none"
+            className="lg:hidden p-2 text-gray-700 rounded-md hover:bg-gray-100"
           >
             <svg
               className="w-6 h-6"
@@ -111,7 +113,7 @@ export default function Header() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Nav */}
         {menuOpen && (
           <div className="lg:hidden mt-3 space-y-2 text-center">
             <Link
@@ -122,37 +124,28 @@ export default function Header() {
               Home
             </Link>
 
-            <button
-              onClick={() => setDropdownOpen(!dropdownOpen)}
-              className="block w-full text-gray-700 hover:bg-gray-100"
-            >
-              Services ▾
-            </button>
-            {dropdownOpen && (
-              <div className="space-y-1">
-                <Link
-                  href="/services/web"
-                  className="block py-1 text-gray-600 hover:text-blue-600"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Web Development
-                </Link>
-                <Link
-                  href="/services/app"
-                  className="block py-1 text-gray-600 hover:text-blue-600"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  App Development
-                </Link>
-                <Link
-                  href="/services/digital"
-                  className="block py-1 text-gray-600 hover:text-blue-600"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Digital Marketing
-                </Link>
-              </div>
-            )}
+            <div>
+              <button
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+                className="block w-full text-gray-700 hover:bg-gray-100"
+              >
+                Services ▾
+              </button>
+              {dropdownOpen && (
+                <div className="space-y-1">
+                  {services.map(([label, link]) => (
+                    <Link
+                      key={label}
+                      href={link}
+                      className="block py-1 text-gray-600 hover:text-blue-600"
+                      onClick={() => setMenuOpen(false)}
+                    >
+                      {label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
 
             <Link
               href="/about"
