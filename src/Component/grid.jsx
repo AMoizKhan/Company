@@ -38,7 +38,7 @@ export default function GridCards({ data = [] }) {
           className="block group"
           aria-label={item.title}
         >
-          <div className="overflow-hidden rounded-xl shadow-md bg-white hover:shadow-xl transition-shadow duration-300">
+          <div className="overflow-hidden rounded-xl shadow-md bg-transparent hover:shadow-xl transition-shadow duration-300">
             {/* Image */}
             <div className="w-full h-64 overflow-hidden">
               <img

@@ -67,8 +67,8 @@ export default function HomePage() {
       {/* Home Section with Background */}
       <GodRays />
       <div
-        className="flex min-h-screen bg-cover bg-center relative"
-        style={{ backgroundImage: "url('/image/ai-bg.jpg')" }}
+        className="relative min-h-screen flex flex-col justify-center text-white"
+        // style={{ backgroundImage: "url('/image/ai-bg.jpg')" }}
       >
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/40"></div>
@@ -104,11 +104,11 @@ export default function HomePage() {
 
 
       {/* Second Section (Editable) */}
-      <div className="p-10 bg-gray-100 min-h-screen">
+      <div className="p-10 bg-transparent min-h-screen text-center">
         {/* <h1 className="text-4xl font-bold text-gray-800 mb-8">Our Cards</h1> */}
 
         {/* Grid for multiple cards */}
-        <div className="p-10 bg-gray-100 min-h-screen text-center">
+        <div className="p-10 bg-transparent min-h-screen text-center">
           <h1 className="text-4xl font-bold text-gray-800 mb-8">Our Services</h1>
 
           {/* Grid Layout */}

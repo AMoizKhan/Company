@@ -10,7 +10,7 @@ export default function Card({
 }) {
   return (
     <ParticleCard
-      className={`bg-white border-4 border-blue-500 rounded-4xl p-4 ${className}`}
+      className={`bg-transparent border-4 border-blue-500 rounded-4xl p-4 ${className}`}
       enableTilt={true}
       enableMagnetism={true}
       clickEffect={true}

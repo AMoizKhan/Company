@@ -14,8 +14,8 @@ const TestimonialSection = () => {
       author: "John Anderson",
       role: "CEO, TechVision Corp",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-      // buttonLink: "https://techvision.com"
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
     },
     {
       id: 2,
@@ -23,8 +23,8 @@ const TestimonialSection = () => {
       author: "Sarah Williams",
       role: "Marketing Director, InnovateX",
       rating: 4,
-      image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-      // buttonLink: "https://innovatex.com"
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
     },
     {
       id: 3,
@@ -32,14 +32,14 @@ const TestimonialSection = () => {
       author: "Michael Chen",
       role: "CTO, FutureScale",
       rating: 5,
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
-      // buttonLink: "https://futurescale.com"
-    }
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80",
+    },
   ];
 
   const TestimonialCard = ({ testimonial }) => (
-    <div className="relative bg-white rounded-xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
-      <div className="absolute top-4 left-4 text-indigo-200 opacity-50">
+    <div className="relative bg-transparent rounded-xl border border-gray-700 p-8 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 backdrop-blur-md">
+      <div className="absolute top-4 left-4 text-gray-400 opacity-50">
         <FaQuoteLeft size={24} />
       </div>
       <div className="mb-4">
@@ -47,36 +47,17 @@ const TestimonialSection = () => {
           <FaStar key={index} className="inline-block text-yellow-400" />
         ))}
       </div>
-      <p className="text-gray-600 mb-6 line-clamp-4">{testimonial.text}</p>
+      <p className="text-gray-200 mb-6 line-clamp-4">{testimonial.text}</p>
       <div className="flex items-center">
         <img
           src={testimonial.image}
           alt={testimonial.author}
           className="w-12 h-12 rounded-full object-cover mr-4"
-          onError={(e) => {
-            e.target.src = "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80";
-          }}
         />
         <div>
-          <h4 className="font-semibold text-gray-800">{testimonial.author}</h4>
-          <p className="text-gray-500 text-sm">{testimonial.role}</p>
+          <h4 className="font-semibold text-white">{testimonial.author}</h4>
+          <p className="text-gray-400 text-sm">{testimonial.role}</p>
         </div>
-      </div>
-      <div className="mt-4 flex space-x-4">
-        {/* <button
-          onClick={() => setSelectedTestimonial(testimonial)}
-          className="text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-200"
-        >
-          Read More
-        </button>
-        <a
-          href={testimonial.buttonLink}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-200"
-        >
-          Visit Website
-        </a> */}
       </div>
     </div>
   );
@@ -85,11 +66,11 @@ const TestimonialSection = () => {
     if (!testimonial) return null;
 
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-        <div className="bg-white rounded-xl p-8 max-w-2xl w-full relative">
+      <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center p-4 z-50">
+        <div className="bg-transparent border border-gray-700 rounded-xl p-8 max-w-2xl w-full relative backdrop-blur-md">
           <button
             onClick={onClose}
-            className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+            className="absolute top-4 right-4 text-gray-300 hover:text-white"
           >
             <IoClose size={24} />
           </button>
@@ -103,44 +84,34 @@ const TestimonialSection = () => {
               src={testimonial.image}
               alt={testimonial.author}
               className="w-16 h-16 rounded-full object-cover mr-4"
-              onError={(e) => {
-                e.target.src = "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=256&q=80";
-              }}
             />
             <div>
-              <h4 className="font-semibold text-gray-800 text-xl">{testimonial.author}</h4>
-              <p className="text-gray-500">{testimonial.role}</p>
+              <h4 className="font-semibold text-white text-xl">
+                {testimonial.author}
+              </h4>
+              <p className="text-gray-400">{testimonial.role}</p>
             </div>
           </div>
-          <p className="text-gray-600 text-lg leading-relaxed">{testimonial.text}</p>
-          <a
-            href={testimonial.buttonLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-6 inline-block text-indigo-600 hover:text-indigo-800 font-medium transition-colors duration-200"
-          >
-            Visit Website
-          </a>
+          <p className="text-gray-200 text-lg leading-relaxed">
+            {testimonial.text}
+          </p>
         </div>
       </div>
     );
   };
 
   return (
-    <div className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+    <div className="bg-transparent py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          {/* <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl mb-4">
-            What Our Clients Say
-          </h2> */}
           <div className="relative inline-block">
-            <h2 className="text-3xl font-bold mb-6 relative inline-block mx-auto mt-10 px-7 py-2">
-              <span className="absolute top-0 left-0 w-6 h-6 border-t-4 border-l-4 border-black"></span>
+            <h2 className="text-3xl font-bold mb-6 relative inline-block mx-auto mt-10 px-7 py-2 text-white">
+              <span className="absolute top-0 left-0 w-6 h-6 border-t-4 border-l-4 border-white"></span>
               What Our Clients Say
-              <span className="absolute bottom-0 right-0 w-6 h-6 border-b-4 border-r-4 border-black"></span>
+              <span className="absolute bottom-0 right-0 w-6 h-6 border-b-4 border-r-4 border-white"></span>
             </h2>
           </div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Discover why companies trust us to deliver exceptional results and drive their success forward.
           </p>
         </div>
