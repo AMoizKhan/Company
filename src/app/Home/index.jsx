@@ -76,7 +76,7 @@ export default function HomePage() {
         {/* Left Side Content */}
         <div className="relative flex flex-col justify-center text-white pl-40">
           {/* Main Heading */}
-          <h1 className="flex text-2xl text-black">MZKoders</h1>
+          <h1 className="flex text-2xl text-white">MZKoders</h1>
 
           {/* Subheading */}
           <h2 className="text-2xl mt-6 drop-shadow-md">
@@ -143,14 +143,14 @@ export default function HomePage() {
             <img
               src="../image/serive.jpg"
               alt="About Service"
-              className="w-full h-80 object-cover rounded-xl shadow-lg"
+              className="w-full h-80 object-cover rounded-xl shadow-lg border border-white/10"
             />
           </div>
 
           {/* Right Content */}
           <div>
             <h2 className="text-3xl font-bold mb-4">About Our Service</h2>
-            <p className="text-gray-700 leading-relaxed">
+            <p className="text-gray-200 leading-relaxed">
               We provide professional web and mobile solutions designed to meet modern business needs.
               Our team focuses on performance, security, and a user-friendly experience.
               With years of expertise, we help companies scale digitally and reach a wider audience.

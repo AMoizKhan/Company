@@ -81,7 +81,7 @@ export default function FAQ() {
               className={`overflow-hidden transition-all duration-500 ease-in-out ${activeIndex === index ? "max-h-40 mt-2 opacity-100" : "max-h-0 opacity-0"
                 }`}
             >
-              <p className="text-gray-600">{faq.answer}</p>
+              <p className="text-gray-300">{faq.answer}</p>
             </div>
           </div>
         ))}
