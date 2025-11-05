@@ -130,6 +130,7 @@
 // };
 
 // export default TestimonialSection;
+"use client";
 import { motion } from "framer-motion";
 import { TestimonialsColumn } from "./testimonials-columns-1";
 
