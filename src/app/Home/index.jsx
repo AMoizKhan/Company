@@ -2,8 +2,13 @@
 import Card from "@/Component/card";
 import FAQ from "@/Component/FAQs";
 import GodRays from "@/Component/GodRays";
+import GradientButton from "@/Component/GradientButton";
 import GridCards from "@/Component/grid";
 import TestimonialSection from "@/Component/review";
+import SplitText from "@/Component/SplitText";
+import { motion } from "framer-motion";
+
+
 
 
 export default function HomePage() {
@@ -61,6 +66,10 @@ export default function HomePage() {
     // { img: "/img5.jpg", title: "Cyber Security", desc: "Protect your digital assets" },
     // { img: "/img6.jpg", title: "Graphic Design", desc: "Creative branding & visuals" },
   ];
+  const handleAnimationComplete = () => {
+    console.log('All letters have animated!');
+  };
+
 
   return (
     <div>
@@ -68,38 +77,64 @@ export default function HomePage() {
       <GodRays />
       <div
         className="relative min-h-screen flex flex-col justify-center text-white"
-        // style={{ backgroundImage: "url('/image/ai-bg.jpg')" }}
+      // style={{ backgroundImage: "url('/image/ai-bg.jpg')" }}
       >
         {/* Dark Overlay */}
         <div className="absolute inset-0 bg-black/40"></div>
 
         {/* Left Side Content */}
-        <div className="relative flex flex-col justify-center text-white pl-40">
-          {/* Main Heading */}
-          <h1 className="flex text-2xl text-white">MZKoders</h1>
 
-          {/* Subheading */}
-          <h2 className="text-2xl mt-6 drop-shadow-md">
-            Empowering the Future of Tech
-          </h2>
+        <div className="relative flex flex-row justify-between items-start px-40 text-white">
+          {/* Left Side - Text */}
+          <div className="flex flex-col items-start max-w-lg">
+            {/* Main Heading */}
+            <SplitText
+              text="MZ KODERS"
+              className="text-7xl font-semibold"
+              delay={100}
+              duration={0.6}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 40 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.1}
+              rootMargin="-100px"
+              onLetterAnimationComplete={handleAnimationComplete}
+            />
 
-          {/* Small Text */}
-          <p className="text-lg mt-4 drop-shadow-md max-w-xl">
-            Discover innovative solutions and growth with us.
-            We empower businesses through modern strategies and creative ideas.
-            From digital transformation to branding, we help you scale with confidence.
-            Together, we shape a future driven by technology and innovation.
-          </p>
+            {/* Subheading */}
+            <h2 className="text-2xl mt-6 drop-shadow-md">
+              Empowering the Future of Tech
+            </h2>
 
+            {/* Small Text */}
+            <p className="text-lg mt-4 drop-shadow-md max-w-xl">
+              Discover innovative solutions and growth with us.
+              We empower businesses through modern strategies and creative ideas.
+              From digital transformation to branding, we help you scale with confidence.
+              Together, we shape a future driven by technology and innovation.
+            </p>
 
-          {/* Button */}
-          <div className="w-40 mx-auto text-center mt-2 justify-start">
-            <button className="w-full py-2 rounded-md border-2 border-blue-600 text-blue-600 text-sm font-medium hover:bg-blue-600 hover:text-white transition">
-              Read More
-            </button>
+            {/* Button */}
+            <div className="w-40 mt-2">
+             <GradientButton>
+                Read More
+              </GradientButton>
+            </div>
           </div>
 
+          {/* Right Side - Image with animation */}
+          <motion.div
+            className="max-w-md"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut" }}
+          >
+            <img src="/image/logo.png" alt="Right Side" className="w-full h-[300px]" />
+          </motion.div>
         </div>
+
+
       </div>
 
 
@@ -109,7 +144,15 @@ export default function HomePage() {
 
         {/* Grid for multiple cards */}
         <div className="p-10 bg-transparent min-h-screen text-center">
-          <h1 className="text-4xl font-bold text-gray-800 mb-8">Our Services</h1>
+          <h2 className="relative inline-block text-3xl font-bold mb-6 mx-auto mt-10 px-7 py-2">
+            <span className="absolute -top-1 -left-1 w-6 h-6 border-t-4 border-l-4 border-white"></span>
+            Our Services
+            <span className="absolute -bottom-1 -right-1 w-6 h-6 border-b-4 border-r-4 border-white"></span>
+          </h2>
+
+
+
+
 
           {/* Grid Layout */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

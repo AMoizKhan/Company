@@ -52,9 +52,9 @@ export default function FAQ() {
       <div className="md:w-1/3 flex justify-center md:justify-start">
         <div className="relative inline-block">
           <h2 className="text-3xl font-bold mb-6 relative inline-block mx-auto mt-10 px-7 py-2">
-            <span className="absolute top-0 left-0 w-6 h-6 border-t-4 border-l-4 border-black"></span>
+            <span className="absolute top-0 left-0 w-6 h-6 border-t-4 border-l-4 border-blue"></span>
             Frequently Asked Questions
-            <span className="absolute bottom-0 right-0 w-6 h-6 border-b-4 border-r-4 border-black"></span>
+            <span className="absolute bottom-0 right-0 w-6 h-6 border-b-4 border-r-4 border-blue"></span>
           </h2>
         </div>
 

@@ -31,9 +31,9 @@ export default function ContactPage() {
         {/* Centered Heading */}
         <div className="relative inline-block text-center  mt-20">
           <h2 className="text-3xl font-bold mb-6 relative inline-block px-7 py-2">
-            <span className="absolute top-0 left-0 w-6 h-6 border-t-4 border-l-4 border-black"></span>
+            <span className="absolute top-0 left-0 w-6 h-6 border-t-4 border-l-4 border-white"></span>
             Contact Us
-            <span className="absolute bottom-0 right-0 w-6 h-6 border-b-4 border-r-4 border-black"></span>
+            <span className="absolute bottom-0 right-0 w-6 h-6 border-b-4 border-r-4 border-white"></span>
           </h2>
         </div>
 
