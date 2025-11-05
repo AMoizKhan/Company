@@ -86,7 +86,7 @@ export default function Services() {
               key={idx}
               className={`flex flex-col md:flex-row items-stretch gap-10 ${
                 idx % 2 === 1 ? "md:flex-row-reverse" : ""
-              } bg-white rounded-2xl overflow-hidden`}
+              } bg-transparent rounded-2xl overflow-hidden`}
             >
               {/* Image */}
               <div className="md:w-1/2 w-full">
@@ -99,10 +99,10 @@ export default function Services() {
 
               {/* Text */}
               <div className="md:w-1/2 w-full flex flex-col justify-center px-8 py-6">
-                <h2 className="text-2xl font-semibold mb-3 text-gray-800">
+                <h2 className="text-4xl font-semibold mb-3 text-white mb-3">
                   {item.title}
                 </h2>
-                <p className="text-gray-600 text-base leading-relaxed">
+                <p className="text-white text-base leading-relaxed mt-8">
                   {item.desc}
                 </p>
               </div>

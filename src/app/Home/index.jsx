@@ -90,7 +90,7 @@ export default function HomePage() {
             {/* Main Heading */}
             <SplitText
               text="MZ KODERS"
-              className="text-7xl font-semibold"
+              className="text-7xl font-semibold mt-12"
               delay={100}
               duration={0.6}
               ease="power3.out"
@@ -116,7 +116,7 @@ export default function HomePage() {
             </p>
 
             {/* Button */}
-            <div className="w-40 mt-2">
+            <div className="w-40 mt-4">
              <GradientButton>
                 Read More
               </GradientButton>
