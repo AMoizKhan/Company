@@ -48,7 +48,7 @@ export default function Services() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-transparent">
       <Header />
 
       <main className="max-w-6xl mx-auto p-6 mt-24">

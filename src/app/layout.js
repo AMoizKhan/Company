@@ -40,7 +40,7 @@
 
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import LiquidEther from "@/Component/LiquidEther";
+import AnoAI from "@/Component/animated-shader-background";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -61,13 +61,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased text-white relative min-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased text-white relative min-h-screen bg-black`}
       >
-        {/* 🌊 Liquid Ether Background (Global) */}
-        <LiquidEther />
+        {/* Background fixed behind everything */}
+        <div className="fixed top-0 left-0 w-full h-full -z-10 bg-black">
+          <AnoAI />
+        </div>
 
-        {/* 🔹 Page Content Above Background */}
-        <div className="relative z-10">{children}</div>
+        {/* Page content */}
+        <main className="relative z-10">{children}</main>
       </body>
     </html>
   );

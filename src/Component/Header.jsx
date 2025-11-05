@@ -33,41 +33,54 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl bg-white rounded-2xl shadow z-50">
+    <header className="fixed top-6 left-1/2 -translate-x-1/2 w-full max-w-4xl 
+bg-blue-500/10 backdrop-blur-md border border-blue-400/30 
+rounded-[2rem] shadow-lg z-50">
       <nav className="px-4 lg:px-6 py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             {/* <Image src={logo} alt="Logo" width={40} height={40} /> */}
-            <span className="ml-2 text-xl font-semibold text-gray-800">
+            <span className="ml-2 text-xl font-semibold text-white">
               Company
             </span>
           </Link>
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex justify-center flex-1 space-x-8 font-medium">
-            <Link href="/" className="text-gray-700 hover:text-blue-600">
+            <Link
+              href="/"
+              className="relative text-white transition-all duration-300 
+              hover:text-blue-400 after:content-[''] after:absolute after:left-0 
+              after:-bottom-1 after:w-0 after:h-[2px] after:bg-blue-400 
+              after:transition-all after:duration-300 hover:after:w-full"
+            >
               Home
             </Link>
+
             <div className="relative" ref={dropdownRef}>
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="text-gray-700 hover:text-blue-600 flex items-center gap-1"
+                className="relative text-white flex items-center gap-1 transition-all duration-300 
+                hover:text-blue-400 after:content-[''] after:absolute after:left-0 
+                after:-bottom-1 after:w-0 after:h-[2px] after:bg-blue-400 
+                after:transition-all after:duration-300 hover:after:w-full"
               >
                 Services ▾
               </button>
+
               <div
-                className={`absolute bg-white border rounded-md shadow-md mt-2 w-48 transition-all duration-200 origin-top ${
-                  dropdownOpen
+                className={`absolute bg-blue-600/20 backdrop-blur-sm border border-blue-300/30 
+                rounded-xl shadow-lg mt-2 w-48 transition-all duration-300 origin-top ${dropdownOpen
                     ? "scale-y-100 opacity-100"
                     : "scale-y-0 opacity-0 pointer-events-none"
-                }`}
+                  }`}
               >
                 {services.map(([label, link]) => (
                   <Link
                     key={label}
                     href={link}
-                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                    className="block px-4 py-2 text-white hover:text-blue-400 hover:underline transition-all duration-200"
                     onClick={() => setDropdownOpen(false)}
                   >
                     {label}
@@ -75,10 +88,24 @@ export default function Header() {
                 ))}
               </div>
             </div>
-            <Link href="/about" className="text-gray-700 hover:text-blue-600">
+
+            <Link
+              href="/about"
+              className="relative text-white transition-all duration-300 
+              hover:text-blue-400 after:content-[''] after:absolute after:left-0 
+              after:-bottom-1 after:w-0 after:h-[2px] after:bg-blue-400 
+              after:transition-all after:duration-300 hover:after:w-full"
+            >
               About
             </Link>
-            <Link href="/contact" className="text-gray-700 hover:text-blue-600">
+
+            <Link
+              href="/contact"
+              className="relative text-white transition-all duration-300 
+              hover:text-blue-400 after:content-[''] after:absolute after:left-0 
+              after:-bottom-1 after:w-0 after:h-[2px] after:bg-blue-400 
+              after:transition-all after:duration-300 hover:after:w-full"
+            >
               Contact
             </Link>
           </div>
@@ -86,7 +113,7 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden p-2 text-gray-700 rounded-md hover:bg-gray-100"
+            className="lg:hidden p-2 text-white rounded-md hover:bg-blue-500/20 transition"
           >
             <svg
               className="w-6 h-6"
@@ -118,7 +145,7 @@ export default function Header() {
           <div className="lg:hidden mt-3 space-y-2 text-center">
             <Link
               href="/"
-              className="block py-2 text-gray-700 hover:bg-gray-100"
+              className="block py-2 text-white hover:text-blue-400 hover:underline"
               onClick={() => setMenuOpen(false)}
             >
               Home
@@ -127,7 +154,7 @@ export default function Header() {
             <div>
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="block w-full text-gray-700 hover:bg-gray-100"
+                className="block w-full text-white hover:text-blue-400 hover:underline"
               >
                 Services ▾
               </button>
@@ -137,7 +164,7 @@ export default function Header() {
                     <Link
                       key={label}
                       href={link}
-                      className="block py-1 text-gray-600 hover:text-blue-600"
+                      className="block py-1 text-white hover:text-blue-400 hover:underline"
                       onClick={() => setMenuOpen(false)}
                     >
                       {label}
@@ -149,14 +176,15 @@ export default function Header() {
 
             <Link
               href="/about"
-              className="block py-2 text-gray-700 hover:bg-gray-100"
+              className="block py-2 text-white hover:text-blue-400 hover:underline"
               onClick={() => setMenuOpen(false)}
             >
               About
             </Link>
+
             <Link
               href="/contact"
-              className="block py-2 text-gray-700 hover:bg-gray-100"
+              className="block py-2 text-white hover:text-blue-400 hover:underline"
               onClick={() => setMenuOpen(false)}
             >
               Contact
