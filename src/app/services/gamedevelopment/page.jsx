@@ -1,37 +1,21 @@
+"use client";
 import Footer from "@/Component/Footer";
 import Header from "@/Component/Header";
 import TestimonialSection from "@/Component/review";
 import { FaGamepad, FaMobileAlt, FaDesktop, FaUsers, FaCogs, FaVrCardboard } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
+
 
 export default function GameDevelopment() {
   return (
     <div className="p-10">
       {/* Page Heading */}
       <Header />
-      <h1 className="text-4xl font-bold text-center mb-6">Game Development</h1>
+      <h1 className="text-4xl font-bold text-center mb-6">Card Game Development</h1>
       <p className="text-lg text-gray-700 text-center mb-10 max-w-3xl mx-auto">
-        SavTech Digital provides next-level Game Development services. From mobile to PC, we bring your
-        gaming ideas to life with immersive graphics, engaging gameplay, and cutting-edge technology.
+        MZ Koders specializes in card game development, crafting engaging and interactive gaming experiences tailored for your audience. Our expert developers create smooth, fast gameplay with stunning graphics and reliable backend support. We bring your vision to life.
       </p>
 
-      {/* Features Grid */}
-      <div className="grid md:grid-cols-3 gap-8 text-center mb-12">
-        <div className="p-6 shadow-lg rounded-lg">
-          <FaMobileAlt className="text-4xl mx-auto text-purple-500 mb-4" />
-          <h2 className="text-xl font-semibold mb-2">Mobile Games</h2>
-          <p className="text-gray-600">High-performance mobile games for Android & iOS with smooth gameplay.</p>
-        </div>
-        <div className="p-6 shadow-lg rounded-lg">
-          <FaDesktop className="text-4xl mx-auto text-purple-500 mb-4" />
-          <h2 className="text-xl font-semibold mb-2">PC & Console Games</h2>
-          <p className="text-gray-600">Stunning graphics and immersive PC/console games for global audiences.</p>
-        </div>
-        <div className="p-6 shadow-lg rounded-lg">
-          <FaVrCardboard className="text-4xl mx-auto text-purple-500 mb-4" />
-          <h2 className="text-xl font-semibold mb-2">VR/AR Games</h2>
-          <p className="text-gray-600">Innovative VR/AR games delivering unforgettable real-time experiences.</p>
-        </div>
-      </div>
 
       {/* Image Left - Text Right */}
       <div className="md:flex items-center gap-10 mb-12">
@@ -39,8 +23,8 @@ export default function GameDevelopment() {
         <div className="md:w-1/2 mt-6 md:mt-0">
           <h2 className="text-2xl font-semibold mb-4">Multiplayer Experiences</h2>
           <p className="text-gray-700">
-            Connect players worldwide with powerful multiplayer servers and seamless connectivity.
-            From casual games to competitive eSports, we design scalable experiences for all.
+            Connect players worldwide with powerful multiplayer servers and seamless connectivity. 
+            From casual card games to competitive tournaments, we design scalable experiences for all.
           </p>
         </div>
       </div>
@@ -51,41 +35,74 @@ export default function GameDevelopment() {
         <div className="md:w-1/2 mt-6 md:mt-0">
           <h2 className="text-2xl font-semibold mb-4">Custom Game Engines</h2>
           <p className="text-gray-700">
-            Build games with optimized engines and frameworks. Our developers focus on performance,
-            graphics, and seamless user interaction for a polished product.
+            Build card games with optimized engines and frameworks. Our developers focus on performance, graphics, and smooth user interaction for a polished experience.
           </p>
         </div>
       </div>
 
       {/* Extra Features */}
-      <div className="grid md:grid-cols-3 gap-8 text-center mb-16">
-        <div className="p-6 shadow-lg rounded-lg">
-          <FaUsers className="text-4xl mx-auto text-purple-500 mb-4" />
-          <h2 className="text-xl font-semibold mb-2">Community Games</h2>
-          <p className="text-gray-600">Build communities with social features, leaderboards, and interactive gaming.</p>
-        </div>
-        <div className="p-6 shadow-lg rounded-lg">
-          <FaGamepad className="text-4xl mx-auto text-purple-500 mb-4" />
-          <h2 className="text-xl font-semibold mb-2">Cross-Platform</h2>
-          <p className="text-gray-600">One game across multiple platforms: PC, mobile, and console for broader reach.</p>
-        </div>
-        <div className="p-6 shadow-lg rounded-lg">
-          <FaCogs className="text-4xl mx-auto text-purple-500 mb-4" />
-          <h2 className="text-xl font-semibold mb-2">Game Optimization</h2>
-          <p className="text-gray-600">Ensure smooth performance with optimized code, graphics, and resources.</p>
-        </div>
-      </div>
+    
 
       {/* Closing Section */}
       <div className="text-center max-w-3xl mx-auto">
         <h2 className="text-3xl font-bold mb-4">Turn Ideas into Reality</h2>
         <p className="text-gray-700 mb-6">
-          Partner with SavTech Digital to develop high-quality games that engage and inspire.
-          Whether mobile, PC, or VR, our experts bring creativity and technology together.
+          Partner with MZ Koders to develop high-quality card games that engage and inspire. 
+          Our experts bring creativity, technology, and industry experience together to make your game a success.
         </p>
       </div>
-      <TestimonialSection/>
-      <Footer/>
+      <hr/>
+      <div className=" text-white py-16 px-10 text-center">
+      {/* Star Icon */}
+
+      {/* Main Heading */}
+      <h2 className="text-3xl font-bold mb-4">Create Your Game, Ignite Success!</h2>
+      <p className="text-gray-300 max-w-3xl mx-auto mb-12">
+        At MZ Koders, we provide quality card game development solutions to match your idea.
+        We design modern and challenging games with an incredible user interface and graphics
+        to ensure an unforgettable player experience.
+      </p>
+
+      {/* Three Columns */}
+      <div className="grid md:grid-cols-3 gap-10 text-left max-w-6xl mx-auto">
+        {/* Column 1 */}
+        <div>
+                <FaStar className="text-6xl text-white mx-auto mb-6" />
+
+          <h3 className="text-2xl font-semibold mb-3 text-white">Proven Expertise</h3>
+          <p className="text-gray-300">
+            The team of card game developers at MZ Koders is truly exceptional; our developers have
+            over 8 years of experience creating high-quality masterpieces. In this competitive market,
+            we respond proactively to client demands with unique value propositions.
+          </p>
+        </div>
+
+        {/* Column 2 */}
+        <div>
+                <FaStar className="text-6xl text-white mx-auto mb-6" />
+
+          <h3 className="text-2xl font-semibold mb-3 text-white">Commitment to Quality</h3>
+          <p className="text-gray-300">
+            Our quality assurance team at MZ Koders ensures that each card game is of premium quality.
+            Quality is the cornerstone of our work to create engaging and user-friendly gaming experiences.
+          </p>
+        </div>
+
+        {/* Column 3 */}
+        <div>
+                <FaStar className="text-6xl text-white mx-auto mb-6" />
+
+          <h3 className="text-2xl font-semibold mb-3 text-white">Affordable & Efficient Services</h3>
+          <p className="text-gray-300">
+            We deliver projects on time without compromising affordability or quality. With 24/7 customer
+            support, our skilled developers use modern technologies to guarantee efficiency and top-notch results.
+          </p>
+        </div>
+      </div>
+    </div>
+    <hr/>
+      <TestimonialSection />
+      <Footer />
     </div>
   );
 }
