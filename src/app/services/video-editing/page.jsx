@@ -1,5 +1,6 @@
 "use client";
 
+import Header from "@/Component/Header";
 import {
   FaVideo,
   FaFilm,
@@ -11,7 +12,8 @@ import {
 
 export default function VideoEditing() {
   return (
-    <div className="p-10 bg-gray-50 min-h-screen">
+    <div className="p-10  min-h-screen">
+      <Header/>
       {/* Page Title */}
       <h1 className="text-4xl font-bold text-center mb-6">Video Editing</h1>
       <p className="text-lg text-gray-700 text-center mb-10 max-w-3xl mx-auto">
