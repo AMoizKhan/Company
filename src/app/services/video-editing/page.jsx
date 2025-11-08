@@ -22,33 +22,7 @@ export default function VideoEditing() {
       </p>
 
       {/* Feature Grid */}
-      <div className="grid md:grid-cols-3 gap-8 mb-12">
-        <div className="bg-white p-6 rounded-xl shadow text-center">
-          <FaFilm className="text-4xl mx-auto text-purple-600 mb-4" />
-          <h3 className="text-xl font-semibold mb-2">Cinematic Editing</h3>
-          <p className="text-gray-600 text-sm">
-            Transform raw footage into cinematic-quality videos with smooth
-            transitions and effects.
-          </p>
-        </div>
-
-        <div className="bg-white p-6 rounded-xl shadow text-center">
-          <FaMusic className="text-4xl mx-auto text-purple-600 mb-4" />
-          <h3 className="text-xl font-semibold mb-2">Sound & Music</h3>
-          <p className="text-gray-600 text-sm">
-            Add professional background music, sound effects, and audio
-            balancing to enhance impact.
-          </p>
-        </div>
-
-        <div className="bg-white p-6 rounded-xl shadow text-center">
-          <FaMagic className="text-4xl mx-auto text-purple-600 mb-4" />
-          <h3 className="text-xl font-semibold mb-2">Visual Effects</h3>
-          <p className="text-gray-600 text-sm">
-            Special effects and motion graphics to make your video stand out.
-          </p>
-        </div>
-      </div>
+     
 
       {/* Image Left - Text Right */}
       <div className="md:flex items-center gap-10 mb-12">
