@@ -1,6 +1,9 @@
 "use client";
 
+import Footer from "@/Component/Footer";
+import GradientButton from "@/Component/GradientButton";
 import Header from "@/Component/Header";
+import Testimonials from "@/Component/review";
 import {
   FaVideo,
   FaFilm,
@@ -13,7 +16,7 @@ import {
 export default function VideoEditing() {
   return (
     <div className="p-10  min-h-screen">
-      <Header/>
+      <Header />
       {/* Page Title */}
       <h1 className="text-4xl font-bold text-center mb-6">Video Editing</h1>
       <p className="text-lg text-gray-700 text-center mb-10 max-w-3xl mx-auto">
@@ -22,7 +25,7 @@ export default function VideoEditing() {
       </p>
 
       {/* Feature Grid */}
-     
+
 
       {/* Image Left - Text Right */}
       <div className="md:flex items-center gap-10 mb-12">
@@ -57,7 +60,7 @@ export default function VideoEditing() {
       </div>
 
       {/* Extra Features */}
-      <div className="grid md:grid-cols-3 gap-8 text-center mb-16">
+      {/* <div className="grid md:grid-cols-3 gap-8 text-center mb-16">
         <div className="bg-white p-6 rounded-xl shadow">
           <FaPhotoVideo className="text-3xl mx-auto text-purple-600 mb-3" />
           <h4 className="font-semibold mb-2">Montage Creation</h4>
@@ -79,7 +82,7 @@ export default function VideoEditing() {
             Export videos in full HD or 4K to maintain crystal-clear quality.
           </p>
         </div>
-      </div>
+      </div> */}
 
       {/* CTA */}
       <div className="text-center max-w-3xl mx-auto">
@@ -90,10 +93,12 @@ export default function VideoEditing() {
           From short clips to cinematic productions, we bring your ideas to
           life with professional video editing services.
         </p>
-        <button className="bg-purple-600 text-white px-6 py-3 rounded-md">
+        <GradientButton>          
           Start Editing Now
-        </button>
+        </GradientButton>
       </div>
+      <Testimonials />
+      <Footer />
     </div>
   );
 }

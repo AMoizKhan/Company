@@ -6,6 +6,7 @@ import Header from '@/Component/Header';
 import TestimonialSection from '@/Component/review';
 import Footer from '@/Component/Footer';
 import React, { useState } from 'react';
+import GradientButton from '@/Component/GradientButton';
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -27,7 +28,7 @@ export default function ContactPage() {
   return (
     <>
       <Header />
-      <div className="min-h-screen bg-gray-50 p-6 flex flex-col items-center">
+      <div className="min-h-screen  p-6 flex flex-col items-center">
         {/* Centered Heading */}
         <div className="relative inline-block text-center  mt-20">
           <h2 className="text-3xl font-bold mb-6 relative inline-block px-7 py-2">
@@ -81,12 +82,9 @@ export default function ContactPage() {
               </div>
 
               <div className="flex items-center justify-between">
-                <button
-                  type="submit"
-                  className="px-6 py-2 rounded-full bg-indigo-600 text-white font-medium hover:bg-indigo-700 transition"
-                >
+               <GradientButton type="submit">
                   Send Message
-                </button>
+                </GradientButton>
 
                 {status && <span className="text-sm text-green-600">{status}</span>}
               </div>
@@ -123,10 +121,10 @@ export default function ContactPage() {
             {/* <div className="mt-8 text-xs text-gray-400">Prefer phone? Call us during working hours for the fastest response.</div> */}
           </aside>
         </div>
-        <TestimonialSection />
+        {/* <TestimonialSection /> */}
       </div>
       <div className="mt-16">
-        <FAQ />
+        
         <Footer />
       </div>
     </>
