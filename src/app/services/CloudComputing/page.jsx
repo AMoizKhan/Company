@@ -4,10 +4,10 @@ import { FaCloud, FaLock, FaServer, FaDatabase, FaShieldAlt, FaSyncAlt } from "r
 
 export default function CloudComputing() {
   return (
-    <div className="p-8">
+    <div className="p-8 mt-10">
       {/* Hero Section */}
       <Header />
-      <h1 className="text-4xl font-bold text-center mb-6">Cloud Computing Services</h1>
+      <h1 className="text-4xl font-bold text-center mt-6">Cloud Computing Services</h1>
       <p className="text-lg text-gray-700 text-center mb-10 max-w-3xl mx-auto">
         SavTech Digital offers robust Cloud Computing solutions tailored to businesses of all sizes.
         From secure data storage to scalable hosting, we provide cloud solutions that enhance agility,
@@ -16,7 +16,7 @@ export default function CloudComputing() {
       </p>
 
       {/* Grid Features */}
-      <div className="grid md:grid-cols-3 gap-8 text-center mb-12">
+      {/* <div className="grid md:grid-cols-3 gap-8 text-center mb-12">
         <div className="p-6 shadow-lg rounded-lg">
           <FaCloud className="text-4xl mx-auto text-blue-500 mb-4" />
           <h2 className="text-xl font-semibold mb-2">Cloud Storage</h2>
@@ -38,7 +38,7 @@ export default function CloudComputing() {
             Fast and reliable hosting services that scale with your growing business.
           </p>
         </div>
-      </div>
+      </div> */}
 
       {/* Image Left - Text Right */}
       <div className="md:flex items-center gap-10 mb-12">
@@ -75,7 +75,7 @@ export default function CloudComputing() {
       {/* Extra Features Center */}
       <div className="grid md:grid-cols-3 gap-8 text-center mb-16">
         <div className="p-6 shadow-lg rounded-lg">
-          <FaDatabase className="text-4xl mx-auto text-blue-500 mb-4" />
+          <FaDatabase className="text-4xl mx-auto text-white mb-4" />
           <h2 className="text-xl font-semibold mb-2">Database Management</h2>
           <p className="text-gray-600">
             Manage, store, and scale databases efficiently with our cloud solutions.
