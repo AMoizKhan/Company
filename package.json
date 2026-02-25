@@ -2,7 +2,9 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "engines": { "node": ">=18" },
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
@@ -15,7 +17,7 @@
     "framer-motion": "^12.23.24",
     "gsap": "^3.13.0",
     "lucide-react": "^0.544.0",
-    "next": "15.5.3",
+    "next": "^16.1.6",
     "openai": "^6.3.0",
     "react": "19.1.0",
     "react-bits": "^1.0.5",
