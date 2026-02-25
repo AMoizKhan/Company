@@ -1,20 +1,28 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export const TestimonialsColumn = ({ className, testimonials, duration }) => {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    setPrefersReducedMotion(mq.matches);
+    const handler = () => setPrefersReducedMotion(mq.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
   return (
     <div className={className}>
       <motion.div
-        animate={{
-          translateY: "-50%",
-        }}
+        animate={prefersReducedMotion ? {} : { translateY: "-50%" }}
         transition={{
           duration: duration || 10,
-          repeat: Infinity,
+          repeat: prefersReducedMotion ? 0 : Infinity,
           ease: "linear",
           repeatType: "loop",
         }}
+        style={{ willChange: prefersReducedMotion ? "auto" : "transform" }}
         className="flex flex-col gap-6 pb-6 bg-background"
       >
         {[...new Array(2)].map((_, index) => (

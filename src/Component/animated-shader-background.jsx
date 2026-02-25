@@ -91,12 +91,26 @@ const AnoAI = () => {
     scene.add(mesh);
 
     let frameId;
+    let lastTime = performance.now();
     const animate = () => {
-      material.uniforms.iTime.value += 0.016;
+      const now = performance.now();
+      material.uniforms.iTime.value += Math.min((now - lastTime) / 1000, 0.1);
+      lastTime = now;
       renderer.render(scene, camera);
       frameId = requestAnimationFrame(animate);
     };
     animate();
+
+    const handleVisibility = () => {
+      if (document.hidden) {
+        if (frameId) cancelAnimationFrame(frameId);
+        frameId = 0;
+      } else {
+        lastTime = performance.now();
+        frameId = requestAnimationFrame(animate);
+      }
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
 
     const handleResize = () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
@@ -105,6 +119,7 @@ const AnoAI = () => {
     window.addEventListener("resize", handleResize);
 
     return () => {
+      document.removeEventListener("visibilitychange", handleVisibility);
       cancelAnimationFrame(frameId);
       window.removeEventListener("resize", handleResize);
       container.removeChild(renderer.domElement);

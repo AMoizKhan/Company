@@ -1,13 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
-import logo from "../../public/image/logowithoutbg.png";
 import { useState, useEffect, useRef } from "react";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [visible, setVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -20,29 +20,48 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const current = window.scrollY;
+      if (current <= 60) {
+        setVisible(true);
+      } else if (current > lastScrollY) {
+        setVisible(false);
+      } else {
+        setVisible(true);
+      }
+      setLastScrollY(current);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   const services = [
     ["Web Development", "/services/web"],
     ["App Development", "/services/app"],
     ["Digital Marketing", "/services/digital-marketing"],
     ["Artificial Intelligence", "/services/ai"],
     ["Content Writing", "/services/ebook"],
-    ["Game Development", "/services/gamedevelopment"],
-    ["Video Editing", "/services/video-editing"],
+    // ["Game Development", "/services/gamedevelopment"],
+    // ["Video Editing", "/services/video-editing"],
     ["Graphic Designing", "/services/graphic-design"],
-    ["Cloud Service", "/services/CloudComputing"],
+    // ["Cloud Service", "/services/CloudComputing"],
   ];
 
   return (
-    <header className="fixed top-6 left-1/2 -translate-x-1/2 w-full max-w-4xl 
-bg-blue-500/10 backdrop-blur-md border border-blue-400/30 
-rounded-[2rem] shadow-lg z-50">
-      <nav className="px-4 lg:px-6 py-3">
+    <header className="fixed top-2 left-2 right-2 sm:top-4 sm:left-4 sm:right-4 md:top-5 md:left-1/2 md:right-auto md:-translate-x-1/2 md:max-w-4xl z-50 pointer-events-none">
+      <div
+        className={`bg-blue-500/10 backdrop-blur-md border border-blue-400/30 rounded-xl sm:rounded-2xl shadow-lg pointer-events-auto transition-transform duration-300 ease-out ${
+          visible ? "translate-y-0" : "-translate-y-[140%]"
+        }`}
+      >
+      <nav className="px-3 sm:px-4 lg:px-6 py-2.5 sm:py-3">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             {/* <Image src={logo} alt="Logo" width={40} height={40} /> */}
             <span className="ml-2 text-xl font-semibold text-white">
-              Company
+              MZ KODERS
             </span>
           </Link>
 
@@ -97,6 +116,16 @@ rounded-[2rem] shadow-lg z-50">
               after:transition-all after:duration-300 hover:after:w-full"
             >
               About
+            </Link>
+
+            <Link
+              href="/portfolio"
+              className="relative text-white transition-all duration-300 
+              hover:text-blue-400 after:content-[''] after:absolute after:left-0 
+              after:-bottom-1 after:w-0 after:h-[2px] after:bg-blue-400 
+              after:transition-all after:duration-300 hover:after:w-full"
+            >
+              Portfolio
             </Link>
 
             <Link
@@ -183,6 +212,14 @@ rounded-[2rem] shadow-lg z-50">
             </Link>
 
             <Link
+              href="/portfolio"
+              className="block py-2 text-white hover:text-blue-400 hover:underline"
+              onClick={() => setMenuOpen(false)}
+            >
+              Portfolio
+            </Link>
+
+            <Link
               href="/contact"
               className="block py-2 text-white hover:text-blue-400 hover:underline"
               onClick={() => setMenuOpen(false)}
@@ -192,6 +229,7 @@ rounded-[2rem] shadow-lg z-50">
           </div>
         )}
       </nav>
+      </div>
     </header>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 
 import ParticleCard from "./ParticleCard";
+import GradientButton from "./GradientButton";
 
 export default function Card({
   title,
@@ -26,14 +27,9 @@ export default function Card({
 
       {/* Read More */}
       {link && (
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-block mt-3 px-4 py-2 text-blue-600 font-semibold border border-blue-600 rounded-lg hover:bg-blue-600 hover:text-white transition"
-        >
-          Read More
-        </a>
+        <div className="mt-3">
+          <GradientButton href={link}>Read More</GradientButton>
+        </div>
       )}
     </ParticleCard>
   );

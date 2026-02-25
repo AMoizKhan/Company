@@ -64,7 +64,7 @@
 //     <h2 className="text-2xl font-bold mb-4">
 //       Increase Your Brand’s Visibility with the Right Team!
 //     </h2>
-//     <p className="text-gray-700 leading-relaxed">
+//     <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
 //       Considering the ever-changing trends of Digital Marketing, we are
 //       your one-stop shop for marketing, content creation, and graphic
 //       design. Our team ensures quality, relevance, and savage results to
@@ -108,10 +108,10 @@
 // }
 "use client";
 
-import Header from "@/Component/Header";
-import Footer from "@/Component/Footer";
-import Image from "next/image";
 import { FaShippingFast, FaUsers, FaHeadset, FaSmile } from "react-icons/fa";
+import PageHeading from "@/Component/PageHeading";
+import PageSubheading from "@/Component/PageSubheading";
+import { serviceImages } from "@/lib/serviceImages";
 
 
 export default function SocialMediaMarketing() {
@@ -146,38 +146,30 @@ export default function SocialMediaMarketing() {
   ];
 
   return (
-    <div className="bg-transparent text-white min-h-screen">
-      <Header />
-
+    <div className="service-page">
+      <main className="service-page-container">
       {/* Hero Section */}
-      <section className="max-w-5xl mx-auto px-6 py-24 text-center">
-        <h1 className="text-4xl font-bold mb-6">
-          Get Noticed With MZ Koders Proven Social Media Marketing Techniques
-        </h1>
-        <p className="text-gray-200 max-w-3xl mx-auto mb-8 leading-relaxed">
+      <section className="text-center mb-10 sm:mb-12">
+        <PageHeading className="mb-4">Get Noticed With MZ Koders Proven Social Media Marketing Techniques</PageHeading>
+        <PageSubheading className="text-gray-300 mb-8">
           At <strong>MZ Koders</strong>, we provide custom social media marketing
           services designed to help your brand stand out, boost engagement, and
           drive traffic and conversions to your website. Our expert team crafts
           tailored strategies aligned with your unique goals and target audience.
-        </p>
+        </PageSubheading>
         {/* <button className="bg-blue-600 px-6 py-3 rounded hover:bg-blue-700 transition">
           Get Started
         </button> */}
       </section>
       <section className="max-w-6xl  mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
-        <div className="relative w-full h-72">
-          <Image
-            src="/image/digital.png" // apni image dal dena public folder me
-            alt="Digital Marketing"
-            fill
-            className="rounded-xl object-cover"
-          />
+        <div className="w-full h-56 sm:h-64 md:h-72 rounded-xl overflow-hidden border border-white/10 bg-white/5">
+          <img src={serviceImages.digital[1]} alt="Digital Marketing" className="w-full h-full object-cover" />
         </div>
         <div>
           <h2 className="text-2xl font-bold mb-4">
             Increase Your Brand’s Visibility with the Right Team!
           </h2>
-          <p className="text-gray-700 leading-relaxed">
+          <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
             Considering the ever-changing trends of Digital Marketing, we are
             your one-stop shop for marketing, content creation, and graphic
             design. Our team ensures quality, relevance, and savage results to
@@ -186,29 +178,22 @@ export default function SocialMediaMarketing() {
           </p>
         </div>
       </section>
-      {/* Highlights Grid with Images */}
-      <section className="max-w-6xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 md:gap-8 mb-12 md:mb-16">
         {highlights.map((item, idx) => (
-          <div
-            key={idx}
-            className="bg-transparent border border-white/30 p-6 rounded-xl flex flex-col gap-4 hover:shadow-lg transition"
-          >
+          <div key={idx} className="service-section-card p-5 sm:p-6 flex flex-col gap-3">
             <div>{item.icon}</div>
-            <h2 className="text-xl font-semibold text-left">{item.title}</h2>
-            <p className="text-gray-200 text-left text-sm">{item.desc}</p>
+            <h2 className="page-heading text-lg sm:text-xl font-semibold text-white">{item.title}</h2>
+            <p className="text-gray-300 text-sm">{item.desc}</p>
           </div>
         ))}
       </section>
 
       {/* Services List Left Aligned */}
-      <section className="max-w-6xl mx-auto px-6 py-16 flex flex-col md:flex-row items-center gap-10">
-        {/* Left: Text + List */}
-        <div className="md:w-1/2 text-left">
-          <h2 className="text-3xl font-bold mb-6">Maximize Your Online Reach</h2>
-          <p className="text-gray-200 mb-8">
-            Online Business Optimization for Brand Recognition
-          </p>
-          <ul className="space-y-4 text-gray-200 list-disc list-inside">
+      <section className="flex flex-col md:flex-row items-stretch gap-6 md:gap-10 mb-12 md:mb-16">
+        <div className="md:w-1/2 flex flex-col justify-center">
+          <h2 className="page-heading text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-white">Maximize Your Online Reach</h2>
+          <p className="text-gray-300 text-sm sm:text-base mb-6">Online Business Optimization for Brand Recognition</p>
+          <ul className="space-y-3 text-gray-300 text-sm sm:text-base list-disc list-inside">
             {services.map((service, idx) => (
               <li key={idx}>{service}</li>
             ))}
@@ -216,40 +201,11 @@ export default function SocialMediaMarketing() {
         </div>
 
         {/* Right: Image */}
-        <div className="md:w-1/2 relative w-full h-60   overflow-hidden">
-          <Image
-            src="/image/mega1.png" // replace with your actual image in public folder
-            alt="Digital Marketing"
-            fill
-            className="object-cover"
-          />
+        <div className="md:w-1/2 h-56 sm:h-64 md:h-72 rounded-xl overflow-hidden border border-white/10 bg-white/5 shrink-0">
+          <img src={serviceImages.digital[0]} alt="Marketing" className="w-full h-full object-cover" />
         </div>
       </section>
-
-      <section className="max-w-6xl  mx-auto px-6 py-16 grid md:grid-cols-2 gap-10 items-center">
-        <div className="relative w-full h-72">
-          <Image
-            src="/image/digital.png" // apni image dal dena public folder me
-            alt="Digital Marketing"
-            fill
-            className="rounded-xl object-cover"
-          />
-        </div>
-        <div>
-          <h2 className="text-2xl font-bold mb-4">
-            Increase Your Brand’s Visibility with the Right Team!
-          </h2>
-          <p className="text-gray-700 leading-relaxed">
-            Considering the ever-changing trends of Digital Marketing, we are
-            your one-stop shop for marketing, content creation, and graphic
-            design. Our team ensures quality, relevance, and savage results to
-            take your brand to new heights. Let’s work together on the next
-            masterpiece!
-          </p>
-        </div>
-      </section>
-
-      <Footer />
+      </main>
     </div>
   );
 }

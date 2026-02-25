@@ -1,7 +1,57 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 html, body {
   height: 100%;
-  background: none !important; /* ✅ keep this */
+  background: none !important;
+}
+
+/* Site-wide creative heading - same size everywhere */
+.page-heading {
+  font-size: 2rem;      /* 32px - same as text-3xl */
+}
+@media (min-width: 768px) {
+  .page-heading {
+    font-size: 2.25rem; /* 36px - same as text-4xl on desktop */
+  }
+}
+
+/* Site-wide subheading - white, equal size */
+.page-subheading {
+  font-size: 1.125rem;  /* 18px - text-lg */
+  line-height: 1.75;
+}
+
+/* Smoother animations and reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Service page layout - consistent across all services */
+.service-page {
+  min-height: 100vh;
+  background: transparent;
+  color: white;
+}
+.service-page-container {
+  max-width: 72rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5rem 1rem 3rem;
+}
+@media (min-width: 640px) {
+  .service-page-container { padding: 5rem 1.5rem 3rem; }
+}
+@media (min-width: 1024px) {
+  .service-page-container { padding: 6rem 2rem 4rem; }
+}
+.service-section-card {
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 1rem;
 }

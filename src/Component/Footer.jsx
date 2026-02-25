@@ -1,5 +1,7 @@
 "use client";
+import Link from "next/link";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import GradientButton from "@/Component/GradientButton";
 
 export default function Footer() {
   return (
@@ -8,13 +10,15 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:col-span-3 lg:grid-cols-6 gap-y-16 gap-x-12">
           {/* Logo and Description */}
           <div className="col-span-2 md:col-span-3 lg:col-span-2 lg:pr-8">
-            <img
-              className="w-auto h-9"
-              src="/image/logo.png"
-              alt="logo"
-            />
+            <Link href="/" className="block w-auto h-9 relative">
+              <img
+                className="w-auto h-9"
+                src="/image/logo.png"
+                alt="MZ KODERS logo"
+              />
+            </Link>
 
-            <p className="text-base leading-relaxed text-gray-600 mt-7">
+            <p className="text-base leading-relaxed text-gray-400 mt-7">
               Discover a world of inspiration and innovation. Stay connected with us for the latest updates and creative ideas.
             </p>
 
@@ -23,7 +27,8 @@ export default function Footer() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center justify-center text-white bg-gray-800 rounded-full w-8 h-8 hover:bg-blue-600"
+                  aria-label="Facebook"
+                  className="flex items-center justify-center text-white bg-gray-800 rounded-full w-8 h-8 hover:bg-blue-600 transition-colors duration-200"
                 >
                   <FaFacebookF size={14} />
                 </a>
@@ -31,7 +36,8 @@ export default function Footer() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center justify-center text-white bg-gray-800 rounded-full w-8 h-8 hover:bg-blue-400"
+                  aria-label="Twitter"
+                  className="flex items-center justify-center text-white bg-gray-800 rounded-full w-8 h-8 hover:bg-blue-400 transition-colors duration-200"
                 >
                   <FaTwitter size={14} />
                 </a>
@@ -39,7 +45,8 @@ export default function Footer() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center justify-center text-white bg-gray-800 rounded-full w-8 h-8 hover:bg-blue-700"
+                  aria-label="LinkedIn"
+                  className="flex items-center justify-center text-white bg-gray-800 rounded-full w-8 h-8 hover:bg-blue-700 transition-colors duration-200"
                 >
                   <FaLinkedinIn size={14} />
                 </a>
@@ -47,7 +54,8 @@ export default function Footer() {
               <li>
                 <a
                   href="#"
-                  className="flex items-center justify-center text-white bg-gray-800 rounded-full w-8 h-8 hover:bg-pink-600"
+                  aria-label="Instagram"
+                  className="flex items-center justify-center text-white bg-gray-800 rounded-full w-8 h-8 hover:bg-blue-600 transition-colors duration-200"
                 >
                   <FaInstagram size={14} />
                 </a>
@@ -61,10 +69,9 @@ export default function Footer() {
               Company
             </p>
             <ul className="mt-6 space-y-4">
-              <li><a href="#" className="text-base text-black hover:text-blue-600">About</a></li>
-              <li><a href="#" className="text-base text-black hover:text-blue-600">Features</a></li>
-              <li><a href="#" className="text-base text-black hover:text-blue-600">Works</a></li>
-              <li><a href="#" className="text-base text-black hover:text-blue-600">Career</a></li>
+              <li><Link href="/about" className="text-base text-gray-300 hover:text-blue-400 transition-colors">About</Link></li>
+              <li><Link href="/services/web" className="text-base text-gray-300 hover:text-blue-400 transition-colors">Services</Link></li>
+              <li><Link href="/contact" className="text-base text-gray-300 hover:text-blue-400 transition-colors">Contact</Link></li>
             </ul>
           </div>
 
@@ -74,10 +81,9 @@ export default function Footer() {
               Contact
             </p>
             <ul className="mt-6 space-y-4">
-              <li><a href="#" className="text-base text-black hover:text-blue-600">Customer Support</a></li>
-              <li><a href="#" className="text-base text-black hover:text-blue-600">Delivery Details</a></li>
-              <li><a href="#" className="text-base text-black hover:text-blue-600">Terms & Conditions</a></li>
-              <li><a href="#" className="text-base text-black hover:text-blue-600">Privacy Policy</a></li>
+              <li><Link href="/contact" className="text-base text-gray-300 hover:text-blue-400 transition-colors">Customer Support</Link></li>
+              <li><a href="#" className="text-base text-gray-300 hover:text-blue-400 transition-colors">Terms & Conditions</a></li>
+              <li><a href="#" className="text-base text-gray-300 hover:text-blue-400 transition-colors">Privacy Policy</a></li>
             </ul>
           </div>
 
@@ -92,21 +98,18 @@ export default function Footer() {
                 name="email"
                 id="email"
                 placeholder="Enter your email"
-                className="block w-full p-4 text-black placeholder-gray-500 border border-gray-200 rounded-md"
+                className="block w-full p-4 rounded-lg border border-white/20 bg-white/5 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400/50 focus:border-blue-400/50 transition"
               />
-              <button
-                type="submit"
-                className="inline-flex items-center justify-center px-6 py-4 mt-3 font-semibold text-white bg-blue-600 rounded-md hover:bg-blue-700"
-              >
-                Subscribe
-              </button>
+              <div className="mt-3">
+                <GradientButton type="submit">Subscribe</GradientButton>
+              </div>
             </form>
           </div>
         </div>
 
-        <hr className="mt-16 mb-10 border-gray-200" />
-        <p className="text-sm text-center text-gray-600">
-          © {new Date().getFullYear()} All Rights Reserved by MZKoders
+        <hr className="mt-16 mb-10 border-gray-700" />
+        <p className="text-sm text-center text-gray-500">
+          © {new Date().getFullYear()} All Rights Reserved by MZ KODERS
         </p>
       </div>
     </section>

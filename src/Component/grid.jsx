@@ -46,18 +46,18 @@ export default function GridCards({ data = [] }) {
                 alt={item.title}
                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-300"
                 onError={(e) => {
-                  e.currentTarget.src = "/images/placeholder.png"; // fallback image
+                  e.currentTarget.src = "https://placehold.co/600x400/1e3a5f/94a3b8?text=" + encodeURIComponent(item.title || "Service");
                 }}
               />
             </div>
 
             {/* Title + Description */}
             <div className="p-4">
-              <h3 className="text-lg font-semibold text-gray-900">
+              <h3 className="text-lg font-semibold text-white group-hover:text-blue-400 transition-colors">
                 {item.title}
               </h3>
               {item.desc && (
-                <p className="text-sm text-gray-600 mt-1 line-clamp-2">
+                <p className="text-sm text-gray-300 mt-1 line-clamp-2">
                   {item.desc}
                 </p>
               )}

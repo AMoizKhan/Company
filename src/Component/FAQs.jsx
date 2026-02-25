@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import PageHeading from "@/Component/PageHeading";
 
 const faqs = [
   {
@@ -50,12 +51,8 @@ export default function FAQ() {
     <div className="flex flex-col md:flex-row justify-between py-16 px-8 gap-12 items-center">
       {/* Left Side - Heading with border box */}
       <div className="md:w-1/3 flex justify-center md:justify-start">
-        <div className="relative inline-block">
-          <h2 className="text-3xl font-bold mb-6 relative inline-block mx-auto mt-10 px-7 py-2">
-            <span className="absolute top-0 left-0 w-6 h-6 border-t-4 border-l-4 border-blue"></span>
-            Frequently Asked Questions
-            <span className="absolute bottom-0 right-0 w-6 h-6 border-b-4 border-r-4 border-blue"></span>
-          </h2>
+        <div className="mt-10 mb-6">
+          <PageHeading className="text-2xl">Frequently Asked Questions</PageHeading>
         </div>
 
       </div>
@@ -69,10 +66,10 @@ export default function FAQ() {
           >
             <button
               onClick={() => toggleFAQ(index)}
-              className="flex justify-between items-center w-full text-left font-semibold text-lg text-gray-800 hover:text-red-500 transition-colors duration-300"
+              className="flex justify-between items-center w-full text-left font-semibold text-lg text-white hover:text-blue-400 transition-colors duration-300"
             >
               {faq.question}
-              <span className="ml-2 text-blue-600">
+              <span className="ml-2 text-blue-400">
                 {activeIndex === index ? "−" : "+"}
               </span>
             </button>

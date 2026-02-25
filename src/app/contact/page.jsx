@@ -1,132 +1,166 @@
-
-
 "use client";
-import FAQ from '@/Component/FAQs';
-import Header from '@/Component/Header';
-import TestimonialSection from '@/Component/review';
-import Footer from '@/Component/Footer';
-import React, { useState } from 'react';
-import GradientButton from '@/Component/GradientButton';
+
+import { useState } from "react";
+import { motion } from "framer-motion";
+import toast from "react-hot-toast";
+import {
+  FaMapMarkerAlt,
+  FaPhone,
+  FaEnvelope,
+  FaClock,
+  FaPaperPlane,
+} from "react-icons/fa";
+import GradientButton from "@/Component/GradientButton";
+import PageHeading from "@/Component/PageHeading";
+import PageSubheading from "@/Component/PageSubheading";
+
+const inputClass =
+  "w-full rounded-xl border border-white/20 bg-white/5 text-white placeholder-gray-400 px-4 py-3 focus:outline-none focus:ring-2 focus:ring-blue-400/50 focus:border-blue-400/50 transition";
 
 export default function ContactPage() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [status, setStatus] = useState(null);
+  const [form, setForm] = useState({ name: "", email: "", message: "" });
 
   function handleChange(e) {
     const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
+    setForm((prev) => ({ ...prev, [name]: value }));
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log('Submit', form);
-    setStatus('Message sent (demo)');
-    setForm({ name: '', email: '', message: '' });
-    setTimeout(() => setStatus(null), 3000);
+    const messagePreview = form.message.length > 80 ? form.message.slice(0, 80) + "…" : form.message;
+    toast.success(
+      (t) => (
+        <div className="space-y-1">
+          <p className="font-semibold">Message sent!</p>
+          <p className="text-sm opacity-90">From: {form.name} ({form.email})</p>
+          <p className="text-sm opacity-80">{messagePreview}</p>
+        </div>
+      ),
+      { duration: 6000 }
+    );
+    setForm({ name: "", email: "", message: "" });
   }
 
-  return (
-    <>
-      <Header />
-      <div className="min-h-screen  p-6 flex flex-col items-center">
-        {/* Centered Heading */}
-        <div className="relative inline-block text-center  mt-20">
-          <h2 className="text-3xl font-bold mb-6 relative inline-block px-7 py-2">
-            <span className="absolute top-0 left-0 w-6 h-6 border-t-4 border-l-4 border-white"></span>
-            Contact Us
-            <span className="absolute bottom-0 right-0 w-6 h-6 border-b-4 border-r-4 border-white"></span>
-          </h2>
-        </div>
+  const contacts = [
+    {
+      icon: FaMapMarkerAlt,
+      label: "Office",
+      value: "MZ KODERS HQ",
+      sub: "Karachi, Pakistan",
+    },
+    {
+      icon: FaPhone,
+      label: "Phone",
+      value: "+92 21 1234 5678",
+      sub: null,
+    },
+    {
+      icon: FaEnvelope,
+      label: "Email",
+      value: "info@mzkoders.com",
+      sub: null,
+    },
+    {
+      icon: FaClock,
+      label: "Working Hours",
+      value: "Mon - Fri: 9:00 AM - 6:00 PM",
+      sub: null,
+    },
+  ];
 
-        {/* Form + Office */}
-        <div className="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Left: Transparent Form Box (Triangle Shape effect using clip-path) */}
-          <div className="bg-transparent p-8 md:p-12 rounded-4xl" style={{ clipPath: 'polygon(0 0, 100% 0, 85% 100%, 0% 100%)' }}>
-            <form onSubmit={handleSubmit} className="space-y-4">
+  return (
+    <div className="min-h-screen bg-transparent text-white pt-24 pb-16 px-6">
+      <div className="max-w-6xl mx-auto">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-center mb-16"
+        >
+          <p className="text-blue-400 font-medium tracking-wider uppercase text-sm mb-2">
+            Get in Touch
+          </p>
+          <PageHeading className="mb-4">Contact Us</PageHeading>
+          <PageSubheading className="text-gray-300 mt-4">
+            Have a project in mind? Send us a message and we’ll get back to you soon.
+          </PageSubheading>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
+          {/* Left: Contact info cards */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.1 }}
+            className="space-y-6"
+          >
+            {contacts.map((item) => (
+              <div
+                key={item.label}
+                className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-6 hover:border-white/20 transition"
+              >
+                <item.icon className="text-2xl text-blue-400 mb-3" />
+                <p className="text-sm text-gray-400 uppercase tracking-wider">{item.label}</p>
+                <p className="text-white font-medium mt-1">{item.value}</p>
+                {item.sub && <p className="text-gray-400 text-sm mt-1">{item.sub}</p>}
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Right: Form */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.2 }}
+            className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm p-8 md:p-10"
+          >
+            <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label className="block text-sm font-medium mb-1">Name</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Name</label>
                 <input
                   name="name"
                   value={form.name}
                   onChange={handleChange}
                   required
-                  className="w-full rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-300 bg-white"
                   placeholder="Your name"
+                  className={inputClass}
                 />
               </div>
-
               <div>
-                <label className="block text-sm font-medium mb-1">Email</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Email</label>
                 <input
                   name="email"
                   type="email"
                   value={form.email}
                   onChange={handleChange}
                   required
-                  className="w-full rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-300 bg-white"
                   placeholder="you@example.com"
+                  className={inputClass}
                 />
               </div>
-
               <div>
-                <label className="block text-sm font-medium mb-1">Message</label>
+                <label className="block text-sm font-medium text-gray-300 mb-2">Message</label>
                 <textarea
                   name="message"
                   value={form.message}
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full rounded-lg border px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-300 bg-white"
                   placeholder="Write your message..."
+                  className={`${inputClass} resize-none`}
                 />
               </div>
-
-              <div className="flex items-center justify-between">
-               <GradientButton type="submit">
-                  Send Message
+              <div className="flex items-center gap-4 pt-2">
+                <GradientButton type="submit">
+                  <span className="flex items-center gap-2">
+                    <FaPaperPlane size={14} /> Send Message
+                  </span>
                 </GradientButton>
-
-                {status && <span className="text-sm text-green-600">{status}</span>}
               </div>
             </form>
-          </div>
-
-          {/* Right: Office details */}
-          <aside className=" rounded-2xl p-8 md:p-12 flex flex-col justify-center">
-            <h3 className="text-lg font-semibold mb-4">Office</h3>
-            <p className="text-sm text-gray-600 mb-6">Pure Scent HQ<br/>123 Aroma Street<br/>Karachi, Pakistan</p>
-
-            <div className="space-y-4">
-              <div>
-                <h4 className="text-sm font-medium">Phone</h4>
-                <a href="tel:+922112345678" className="block text-base mt-1">+92 21 1234 5678</a>
-              </div>
-
-              <div>
-                <h4 className="text-sm font-medium">Email</h4>
-                <a
-                  href="mailto:info@purescent.example"
-                  className="block text-base mt-1 transition-colors duration-200 hover:text-indigo-600"
-                >
-                  info@purescent.example
-                </a>
-              </div>
-
-              <div>
-                <h4 className="text-sm font-medium">Working Hours</h4>
-                <p className="text-sm mt-1 text-gray-600">Mon - Fri: 9:00 AM - 6:00 PM</p>
-              </div>
-            </div>
-
-            {/* <div className="mt-8 text-xs text-gray-400">Prefer phone? Call us during working hours for the fastest response.</div> */}
-          </aside>
+          </motion.div>
         </div>
-        {/* <TestimonialSection /> */}
       </div>
-      <div className="mt-16">
-        
-        <Footer />
-      </div>
-    </>
+    </div>
   );
 }
